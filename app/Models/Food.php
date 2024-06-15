@@ -19,4 +19,10 @@ class Food extends Model
         'slug',
         'category_id',
     ];
+
+    protected $table = 'food';
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

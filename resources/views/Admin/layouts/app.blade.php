@@ -73,12 +73,12 @@
                             </a>
                         </li>
 
-                        <li class="nav-header">QUẢN LÝ SẢN PHẨM</li>
+                        <li class="nav-header">QUẢN LÝ MÓN ĂN</li>
                         <li class="nav-item has-treeview">
                             <a href="{{ route('admin.category.index') }}" class="nav-link">
                                 <i class="nav-icon fa-solid fa-layer-group"></i>
                                 <p>
-                                    Chuyên Mục
+                                    Loại Món
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -99,21 +99,21 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-clipboard-list"></i>
+                                <i class="nav-icon fa-solid fa-utensils"></i>
                                 <p>
-                                    Sản Phẩm
+                                    Món Ăn
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('admin.food.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh Sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('admin.food.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm Mới</p>
                                     </a>

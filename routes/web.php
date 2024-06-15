@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\FoodController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,15 @@ Route::prefix('admin')->group(function () {
             'edit' => 'admin.category.edit',
             'update' => 'admin.category.update',
             'destroy' => 'admin.category.destroy',
+        ]);
+        Route::resource('/food', FoodController::class)->names([
+            'index' => 'admin.food.index',
+            'create' => 'admin.food.create',
+            'store' => 'admin.food.store',
+            'show' => 'admin.food.show',
+            'edit' => 'admin.food.edit',
+            'update' => 'admin.food.update',
+            'destroy' => 'admin.food.destroy',
         ]);
         Route::resource('/news', NewsController::class)->names([
             'index' => 'admin.news.index',
