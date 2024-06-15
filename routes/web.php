@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\LogoutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
@@ -14,6 +15,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
     Route::post('login', [LoginController::class, 'login'])->name('admin.login.submit')->middleware('notadmin');
+    Route::get('logout', [LogoutController::class, 'index'])->name('admin.logout')->middleware('admin');
     Route::middleware('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('/category', CategoryController::class)->names([
