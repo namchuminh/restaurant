@@ -146,26 +146,11 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-barcode"></i>
+                                <i class="nav-icon fa-solid fa-user"></i>
                                 <p>
-                                    Mã Giảm Giá
-                                    <i class="right fas fa-angle-left"></i>
+                                    Khách Hàng
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh Sách</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm Mới</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -175,20 +160,35 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-header">QUẢN LÝ ĐƠN HÀNG</li>
+                        <li class="nav-header">QUẢN LÝ BÁN HÀNG</li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('admin.table.index') }}" class="nav-link">
+                                <i class="nav-icon fa-solid fa-newspaper"></i>
+                                <p>
+                                    Bàn Ăn
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.table.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh Sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.table.create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm Mới</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-cart-shopping"></i>
                                 <p>
                                     Đơn Hàng
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-user"></i>
-                                <p>
-                                    Khách Hàng
                                 </p>
                             </a>
                         </li>

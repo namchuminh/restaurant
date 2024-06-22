@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\TableController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,6 +45,16 @@ Route::prefix('admin')->group(function () {
             'edit' => 'admin.news.edit',
             'update' => 'admin.news.update',
             'destroy' => 'admin.news.destroy',
+        ]);
+
+        Route::resource('/table', TableController::class)->names([
+            'index' => 'admin.table.index',
+            'create' => 'admin.table.create',
+            'store' => 'admin.table.store',
+            'show' => 'admin.table.show',
+            'edit' => 'admin.table.edit',
+            'update' => 'admin.table.update',
+            'destroy' => 'admin.table.destroy',
         ]);
     });
 });

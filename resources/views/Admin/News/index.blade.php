@@ -1,5 +1,5 @@
 @extends('Admin.layouts.app')
-@section('title', 'Trang Quản Trị')
+@section('title', 'Danh sách tin tức')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
