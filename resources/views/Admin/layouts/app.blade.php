@@ -194,7 +194,7 @@
                         </li>
                         <li class="nav-header">CÀI ĐẶT CHUNG</li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.config.index') }}" class="nav-link">
                                 <i class="nav-icon fa-solid fa-gear"></i>
                                 <p>
                                     Cấu Hình
@@ -202,7 +202,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon fa-solid fa-image"></i>
                                 <p>
                                     Giao Diện

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Config extends Model
 {
     use HasFactory;
+
+    protected $fillalbe = [
+        'title',
+        'description',
+        'logo',
+        'favicon',
+        'phone',
+        'email',
+        'address'
+    ];
 }

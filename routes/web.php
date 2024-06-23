@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProfileController;
-
+use App\Http\Controllers\Admin\ConfigController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,5 +71,8 @@ Route::prefix('admin')->group(function () {
         
         Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile.index');
         Route::post('profile/update', [ProfileController::class, 'update'])->name('admin.profile.update');
+        
+        Route::get('/config', [ConfigController::class, 'index'])->name('admin.config.index');
+        Route::post('/config/update', [ConfigController::class, 'update'])->name('admin.config.update');
     });
 });
