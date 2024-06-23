@@ -29,10 +29,26 @@ class ProfileController extends Controller
 
         // If password is provided, add password validation
         if ($request->filled('password')) {
-            $rules['password'] = 'required|string|min:8';
+            $rules['password'] = 'required|string|min:4';
         }
 
-        $request->validate($rules);
+        $messages = [
+            'name.required' => 'Trường tên là bắt buộc.',
+            'name.string' => 'Trường tên phải là chuỗi.',
+            'name.max' => 'Trường tên không được vượt quá :max ký tự.',
+            'phone.required' => 'Trường số điện thoại là bắt buộc.',
+            'phone.string' => 'Trường số điện thoại phải là chuỗi.',
+            'phone.max' => 'Trường số điện thoại không được vượt quá :max ký tự.',
+            'email.required' => 'Trường email là bắt buộc.',
+            'email.email' => 'Trường email phải là địa chỉ email hợp lệ.',
+            'email.max' => 'Trường email không được vượt quá :max ký tự.',
+            'email.unique' => 'Email đã được sử dụng.',
+            'password.required' => 'Trường mật khẩu là bắt buộc.',
+            'password.string' => 'Trường mật khẩu phải là chuỗi.',
+            'password.min' => 'Trường mật khẩu phải có ít nhất :min ký tự.',
+        ];
+
+        $request->validate($rules, $messages);
 
         // Update user information
         $user->name = $request->name;
