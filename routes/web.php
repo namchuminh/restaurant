@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -62,5 +63,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/customer', [CustomerController::class, 'index'])->name('admin.customer.index');
         Route::get('/customer/block/{id}', [CustomerController::class, 'show'])->name('admin.customer.block');
         Route::post('/customer/block/{id}', [CustomerController::class, 'block'])->name('admin.customer.block.submit');
+
+        Route::get('/contact', [ContactController::class, 'index'])->name('admin.contact.index');
+        Route::get('/contact/view/{id}', [ContactController::class, 'view'])->name('admin.contact.view');
     });
 });
