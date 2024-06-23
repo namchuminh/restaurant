@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProfileController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -66,5 +68,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/contact', [ContactController::class, 'index'])->name('admin.contact.index');
         Route::get('/contact/view/{id}', [ContactController::class, 'view'])->name('admin.contact.view');
+        
+        Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile.index');
+        Route::post('profile/update', [ProfileController::class, 'update'])->name('admin.profile.update');
     });
 });
