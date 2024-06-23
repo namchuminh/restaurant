@@ -50,6 +50,7 @@ class TableController extends Controller
         $table->name = $validatedData['name'];
         $table->address = $validatedData['address'];
         $table->quantity = $validatedData['quantity'];
+        $table->status = 0;
         $table->save();
 
         // Trả về phản hồi hoặc chuyển hướng người dùng
@@ -115,6 +116,17 @@ class TableController extends Controller
 
         // Trả về phản hồi hoặc chuyển hướng người dùng
         return redirect()->route('admin.table.index')->with('success', 'Cập nhật bàn ăn thành công!');
+    }
+
+    public function status($id){
+        // Tìm bản ghi theo ID và cập nhật dữ liệu
+        $table = Table::findOrFail($id); // Thay Table bằng tên model của bạn
+        $status = $table->status == 0 ? 1 : 0;
+        $table->status = $status;
+        $table->save();
+
+        // Trả về phản hồi hoặc chuyển hướng người dùng
+        return redirect()->route('admin.table.index')->with('success', 'Cập nhật trạng thái bàn ăn thành công!');
     }
 
     /**

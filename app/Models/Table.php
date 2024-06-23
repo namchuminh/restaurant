@@ -12,6 +12,7 @@ class Table extends Model
     protected $fillable = [
         'name',
         'address',
-        'quantity'
+        'quantity',
+        'status'
     ];
 }

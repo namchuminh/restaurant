@@ -47,6 +47,7 @@ Route::prefix('admin')->group(function () {
             'destroy' => 'admin.news.destroy',
         ]);
 
+        Route::get('/table/status/{id}', [TableController::class, 'status'])->name('admin.table.status');
         Route::resource('/table', TableController::class)->names([
             'index' => 'admin.table.index',
             'create' => 'admin.table.create',

@@ -33,6 +33,8 @@
                                     <th>Tên Bàn Ăn</th>
                                     <th>Vị Trí Bàn Ăn</th>
                                     <th>Số Người</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Đổi Trạng Thái</th>
                                     <th>Hành Động</th>
                                 </tr>
                             </thead>
@@ -50,6 +52,18 @@
                                         </td>
                                         <td>
                                             {{ $table->quantity }} người
+                                        </td>
+                                        <td>
+                                            {{ $table->status == 0 ? "Hiện Trống" : "Sử Dụng"}}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-success" href="{{ route('admin.table.status', ['id' => $table->id]) }}">
+                                                @if ($table->status == 0)
+                                                    <i class='fa-solid fa-users'></i> Đang Sử Dụng
+                                                @else
+                                                    <i class='fa-solid fa-user-xmark'></i> Đang Hiện Trống
+                                                @endif
+                                            </a>
                                         </td>
                                         <td class="d-flex">
                                             <a href="{{ route('admin.table.edit', $table->id) }}" class="btn btn-primary mr-2">

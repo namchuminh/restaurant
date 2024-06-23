@@ -163,7 +163,7 @@
                         <li class="nav-header">QUẢN LÝ BÁN HÀNG</li>
                         <li class="nav-item has-treeview">
                             <a href="{{ route('admin.table.index') }}" class="nav-link">
-                                <i class="nav-icon fa-solid fa-newspaper"></i>
+                                <i class="nav-icon fa-solid fa-table"></i>
                                 <p>
                                     Bàn Ăn
                                     <i class="right fas fa-angle-left"></i>
