@@ -83,3 +83,4 @@ Route::get('/mon-an', [WebFoodController::class, 'index'])->name('web.food.list'
 Route::get('/mon-an/{slug}', [WebFoodController::class, 'view'])->name('web.food.view');
 
 Route::get('/loai-mon-an/{slug}', [WebCategoryController::class, 'view'])->name('web.category.view');
+

@@ -178,12 +178,12 @@
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="home-restaurant-shop.html"><img src="assets/img/logo.svg" alt="Restar"></a>
+                <a href="{{ route('web.home') }}"><img src="assets/img/logo.svg" alt="Restar"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
                     <li>
-                        <a href="home-restaurant-shop.html">TRANG CHỦ</a>
+                        <a href="{{ route('web.home') }}">TRANG CHỦ</a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#">LOẠI MÓN ĂN</a>
@@ -239,20 +239,20 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="home-restaurant-shop.html"><img src="assets/img/logo.svg" alt="Restar"></a>
+                                <a href="{{ route('web.home') }}"><img src="assets/img/logo.svg" alt="Restar"></a>
                             </div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a href="home-restaurant-shop.html">TRANG CHỦ</a>
+                                        <a href="{{ route('web.home') }}">TRANG CHỦ</a>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#">LOẠI MÓN ĂN</a>
                                         <ul class="sub-menu">
                                             @foreach ($listMenuCategory as $category)
-                                                <li><a href="about.html">{{ $category->name }}</a></li>
+                                                <li><a href="{{ route('web.category.view', $category->slug) }}">{{ $category->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
