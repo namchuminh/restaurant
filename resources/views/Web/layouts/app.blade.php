@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    <meta name="author" content="Restar">
-    <meta name="description" content="@yield('title')">
+    <title>{{ $config->title }} | @yield('title')</title>
+    <meta name="author" content="{{ $config->email }}">
+    <meta name="description" content="@yield('title'), {{ $config->description }}">
     <meta name="keywords" content="@yield('title')">
     <meta name="robots" content="INDEX,FOLLOW">
 
@@ -14,22 +14,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset($config->favicon) }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset($config->favicon) }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset($config->favicon) }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset($config->favicon) }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset($config->favicon) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($config->favicon) }}">
     <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset($config->favicon) }}">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -136,7 +136,7 @@
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="{{ route('web.home') }}"><img src="assets/img/logo.svg" alt="Restar"></a>
+                <a href="{{ route('web.home') }}"><img src="{{ asset($config->logo) }}"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
@@ -163,9 +163,7 @@
                 </ul>
             </div>
         </div>
-    </div><!--==============================
-	Header Area
-==============================-->
+    </div>
     <header class="th-header header-layout1 ">
         <div class="header-top">
             <div class="container">
@@ -173,9 +171,9 @@
                     <div class="col-auto d-none d-lg-block">
                         <div class="header-links">
                             <ul>
-                                <li class="d-none d-xxl-inline-block"><i class="fas fa-location-dot"></i> <a href="https://www.google.com/maps/">9402 Main St, Plymouth, CA 95669, United States</a></li>
-                                <li><i class="fas fa-phone"></i> <a href="tel:+98782818015">+987-828-18015</a></li>
-                                <li><i class="fas fa-envelope"></i> <a href="mailto:info@restar.com">info@restar.com</a></li>
+                                <li class="d-none d-xxl-inline-block"><i class="fas fa-location-dot"></i> <a href="https://www.google.com/maps/">{{ $config->address }}</a></li>
+                                <li><i class="fas fa-phone"></i> <a href="tel:{{ $config->phone }}">{{ $config->phone }}</a></li>
+                                <li><i class="fas fa-envelope"></i> <a href="mailto:{{ $config->email }}">{{ $config->email }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -197,7 +195,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="{{ route('web.home') }}"><img src="assets/img/logo.svg" alt="Restar"></a>
+                                <a href="{{ route('web.home') }}"><img src="{{ asset($config->logo) }}" ></a>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -210,7 +208,7 @@
                                         <a href="#">LOẠI MÓN ĂN</a>
                                         <ul class="sub-menu">
                                             @foreach ($listMenuCategory as $category)
-                                                <li><a href="about.html">{{ $category->name }}</a></li>
+                                                <li><a href="{{ route('web.category.view', $category->slug) }}">{{ $category->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -254,33 +252,33 @@
                         <div class="row justify-content-between">
                             <div class="col-md-6 col-xl-auto">
                                 <div class="widget footer-widget">
-                                    <h3 class="widget_title">Get In Touch</h3>
+                                    <h3 class="widget_title">Liên Hệ</h3>
                                     <div class="th-widget-contact">
                                         <div class="info-box">
-                                            <h4 class="box-title">Address Location</h4>
+                                            <h4 class="box-title">Địa Chỉ</h4>
                                             <div class="box-content">
                                                 <div class="box-icon">
                                                     <i class="fas fa-location-dot"></i>
                                                 </div>
-                                                <p class="box-text">138 MacArthur Ave, USA</p>
+                                                <p class="box-text">{{ $config->address }}</p>
                                             </div>
                                         </div>
                                         <div class="info-box">
-                                            <h4 class="box-title">Phone Number</h4>
+                                            <h4 class="box-title">Số Điện Thoại</h4>
                                             <div class="box-content">
                                                 <div class="box-icon">
                                                     <i class="fas fa-phone"></i>
                                                 </div>
-                                                <p class="box-text"><a href="tel:+16326543564">+(163)-2654-3564</a></p>
+                                                <p class="box-text"><a href="tel:{{ $config->phone }}">{{ $config->phone }}</a></p>
                                             </div>
                                         </div>
                                         <div class="info-box">
-                                            <h4 class="box-title">Email address</h4>
+                                            <h4 class="box-title">Địa Chỉ Email</h4>
                                             <div class="box-content">
                                                 <div class="box-icon">
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
-                                                <p class="box-text"><a href="mailto:info@restar.com">info@restar.com</a></p>
+                                                <p class="box-text"><a href="mailto:{{ $config->email }}">{{ $config->email }}</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -288,54 +286,40 @@
                             </div>
                             <div class="col-md-6 col-xl-auto">
                                 <div class="widget widget_nav_menu footer-widget">
-                                    <h3 class="widget_title">Quick Links</h3>
+                                    <h3 class="widget_title">Thông Tin</h3>
                                     <div class="menu-all-pages-container">
                                         <ul class="menu">
-                                            <li><a href="team.html">Team Member</a></li>
-                                            <li><a href="about.html">Testimonials</a></li>
-                                            <li><a href="about.html">Company History</a></li>
-                                            <li><a href="contact.html">Need a Career?</a></li>
-                                            <li><a href="faq.html">FAQs</a></li>
+                                            <li><a href="#">Đầu Bếp</a></li>
+                                            <li><a href="#">Về Chúng Tôi</a></li>
+                                            <li><a href="#">Điều Khoản</a></li>
+                                            <li><a href="#">Dịch Vụ</a></li>
+                                            <li><a href="#">Tin Tức</a></li>
                                         </ul>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
                             </div>
                             <div class="col-md-6 col-xl-auto">
                                 <div class="widget widget_nav_menu footer-widget">
-                                    <h3 class="widget_title">Food Menu</h3>
+                                    <h3 class="widget_title">Khách Hàng</h3>
                                     <div class="menu-all-pages-container">
                                         <ul class="menu">
-                                            <li><a href="shop.html">White Castle</a></li>
-                                            <li><a href="shop.html">Beef Sandwich</a></li>
-                                            <li><a href="shop.html">Cherry Limeade</a></li>
-                                            <li><a href="shop.html">Sandwich</a></li>
-                                            <li><a href="shop.html">Pumpkin Spice</a></li>
+                                            <li><a href="shop.html">Đặt Bàn</a></li>
+                                            <li><a href="shop.html">Đăng Nhập</a></li>
+                                            <li><a href="shop.html">Đăng Ký</a></li>
+                                            <li><a href="shop.html">Liên Hệ</a></li>
+                                            <li><a href="shop.html">Yêu Thích</a></li>
                                         </ul>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                             <div class="col-md-6 col-xl-auto">
                                 <div class="widget footer-widget">
-                                    <h3 class="widget_title">Newsletter</h3>
+                                    <h3 class="widget_title">Đăng Ký Nhận Tin</h3>
                                     <div class="newsletter-widget">
-                                        <p class="footer-text">Subscribe to our newsletter and receive 15% discount from your order.</p>
+                                        <p class="footer-text">Đăng ký với hệ thống để nhận các thông tin khuyến mãi.</p>
                                         <form action="#" class="newsletter-form has-icon">
                                             <div class="form-group">
-                                                <input class="form-control" type="email" placeholder="Enter email address" required="">
+                                                <input class="form-control" type="email" placeholder="Địa chỉ email" required="">
                                             </div>
                                             <button type="submit" class="icon-btn"><i class="fa-solid fa-paper-plane"></i></button>
                                         </form>
@@ -355,13 +339,13 @@
                     <div class="container">
                         <div class="row gx-1 gy-2 align-items-center">
                             <div class="col-md-7">
-                                <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2024 <a href="home-restaurant-shop.html">Restar</a>. All Rights Reserved.</p>
+                                <p class="copyright-text">Bản quyền thuộc <i class="fal fa-copyright"></i> <a href="{{ route('web.home') }}">{{ $config->title }}</a> 2024 - 2025</p>
                             </div>
                             <div class="col-md-5 text-center text-md-end">
                                 <div class="footer-links">
                                     <ul>
-                                        <li><a href="about.html">Terms & Condition</a></li>
-                                        <li><a href="about.html">Privacy & Policy</a></li>
+                                        <li><a href="#">Hoạt Động</a></li>
+                                        <li><a href="#">Hình Ảnh</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -371,8 +355,6 @@
             </footer>
         </div>
     </div>
-
-
 
     <!-- Scroll To Top -->
     <div class="scroll-top">

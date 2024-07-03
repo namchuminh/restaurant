@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Category;
+use App\Models\Config;
 use View;
 
 
@@ -17,5 +18,8 @@ class Controller extends BaseController
     {
         $listMenuCategory = Category::all();
         View::share('listMenuCategory', $listMenuCategory);
+
+        $config = Config::get()->first();
+        View::share('config', $config);
     }
 }
