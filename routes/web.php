@@ -13,9 +13,9 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ConfigController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\WebFoodController;
+use App\Http\Controllers\Web\WebCategoryController;
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
@@ -76,3 +76,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/config/update', [ConfigController::class, 'update'])->name('admin.config.update');
     });
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('web.home');
+
+Route::get('/mon-an', [WebFoodController::class, 'index'])->name('web.food.list');
+Route::get('/mon-an/{slug}', [WebFoodController::class, 'view'])->name('web.food.view');
+
+Route::get('/loai-mon-an/{slug}', [WebCategoryController::class, 'view'])->name('web.category.view');

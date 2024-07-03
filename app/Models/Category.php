@@ -14,4 +14,9 @@ class Category extends Model
         'image',
         'slug'
     ];
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
 }
