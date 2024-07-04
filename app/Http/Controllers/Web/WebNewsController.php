@@ -47,4 +47,23 @@ class WebNewsController extends Controller
             return redirect()->route('admin.news.list')->with('status', 'Không timg thấy tin tức.');
         }
     }
+
+    public function show($slug){
+        try {
+            $category = Category::where('slug', $slug)->firstOrFail();
+            $category_id = $category->id;
+
+            $news = News::with('category')->where('category_id', $category_id)->paginate(5);
+
+            if($news->total() <= 0){
+                return redirect()->route('admin.news.list')->with('status', 'Không timg thấy tin tức.');
+            }
+
+            $categories = Category::withCount('news')->get();
+            $recentPosts = News::latest()->limit(5)->get();
+            return view('web.news.index', compact('news', 'categories', 'recentPosts'));
+        } catch (\Exception $e) {
+            return redirect()->route('web.news.list')->with('status', 'Không timg thấy chuyên mục tin tức.');
+        }
+    }
 }

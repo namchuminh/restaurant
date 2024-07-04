@@ -69,7 +69,7 @@
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
                     <div class="widget widget_search  ">
-                        <form class="search-form">
+                        <form class="search-form" action="{{ route('web.news.list') }}">
                             @if(isset($keyword))
                                 <input type="text" name="keyword" placeholder="{{ $keyword }}">
                             @else
