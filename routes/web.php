@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\WebFoodController;
 use App\Http\Controllers\Web\WebCategoryController;
+use App\Http\Controllers\Web\WebNewsController;
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
@@ -83,4 +84,9 @@ Route::get('/mon-an', [WebFoodController::class, 'index'])->name('web.food.list'
 Route::get('/mon-an/{slug}', [WebFoodController::class, 'view'])->name('web.food.view');
 
 Route::get('/loai-mon-an/{slug}', [WebCategoryController::class, 'view'])->name('web.category.view');
+
+Route::get('/tin-tuc', [WebNewsController::class, 'index'])->name('web.news.list');
+Route::get('/tin-tuc/{slug}', [WebNewsController::class, 'view'])->name('web.news.view');
+Route::get('/tin-tuc/chuyen-muc/{slug}', [WebNewsController::class, 'show'])->name('web.news.category.show');
+
 

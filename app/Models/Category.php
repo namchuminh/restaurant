@@ -19,4 +19,9 @@ class Category extends Model
     {
         return $this->hasMany(Food::class);
     }
+
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
 }

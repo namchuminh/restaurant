@@ -155,7 +155,7 @@
                         <a href="{{ route('web.food.list') }}">MÓN ĂN</a>
                     </li>
                     <li>
-                        <a href="home-restaurant-shop.html">TIN TỨC</a>
+                        <a href="{{ route('web.news.list') }}">TIN TỨC</a>
                     </li>
                     <li>
                         <a href="contact.html">LIÊN HỆ</a>
@@ -216,7 +216,7 @@
                                         <a href="{{ route('web.food.list') }}">MÓN ĂN</a>
                                     </li>
                                     <li>
-                                        <a href="home-restaurant-shop.html">TIN TỨC</a>
+                                        <a href="{{ route('web.news.list') }}">TIN TỨC</a>
                                     </li>
                                     <li>
                                         <a href="contact.html">LIÊN HỆ</a>
