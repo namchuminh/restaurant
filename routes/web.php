@@ -17,6 +17,8 @@ use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\WebFoodController;
 use App\Http\Controllers\Web\WebCategoryController;
 use App\Http\Controllers\Web\WebNewsController;
+use App\Http\Controllers\Web\WebContactController;
+use App\Http\Controllers\Web\WebCustomerController;
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
@@ -88,5 +90,22 @@ Route::get('/loai-mon-an/{slug}', [WebCategoryController::class, 'view'])->name(
 Route::get('/tin-tuc', [WebNewsController::class, 'index'])->name('web.news.list');
 Route::get('/tin-tuc/{slug}', [WebNewsController::class, 'view'])->name('web.news.view');
 Route::get('/tin-tuc/chuyen-muc/{slug}', [WebNewsController::class, 'show'])->name('web.news.category.show');
+
+Route::get('/lien-he', [WebContactController::class, 'index'])->name('web.contact.index');
+Route::post('/lien-he', [WebContactController::class, 'contact'])->name('web.news.contact');
+
+Route::middleware(['guest.custom'])->group(function () {
+    Route::get('/dang-nhap', [WebCustomerController::class, 'login'])->name('web.customer.login');
+    Route::post('/dang-nhap', [WebCustomerController::class, 'login']);
+    Route::get('/dang-ky', [WebCustomerController::class, 'register'])->name('web.customer.register');
+    Route::post('/dang-ky', [WebCustomerController::class, 'register']);
+});
+
+Route::middleware(['auth.custom'])->group(function () {
+    Route::get('/dang-xuat', [WebCustomerController::class, 'logout'])->name('web.customer.logout');
+    Route::get('/khach-hang', [WebCustomerController::class, 'index'])->name('web.customer.index');
+    Route::get('/yeu-thich', [WebCustomerController::class, 'wishlist'])->name('web.customer.wishlist');
+});
+
 
 

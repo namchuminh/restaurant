@@ -65,5 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\AdminRole::class,
         'notadmin' => \App\Http\Middleware\NotAdmin::class,
+        'guest.custom' => \App\Http\Middleware\RedirectIfAuthenticatedCustom::class,
+        'auth.custom' => \App\Http\Middleware\RedirectIfNotAuthenticatedCustom::class,
     ];
 }
