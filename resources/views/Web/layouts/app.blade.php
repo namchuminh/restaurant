@@ -158,7 +158,7 @@
                         <a href="{{ route('web.news.list') }}">TIN TỨC</a>
                     </li>
                     <li>
-                        <a href="contact.html">LIÊN HỆ</a>
+                        <a href="{{ route('web.contact.index') }}">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
@@ -219,7 +219,7 @@
                                         <a href="{{ route('web.news.list') }}">TIN TỨC</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">LIÊN HỆ</a>
+                                        <a href="{{ route('web.contact.index') }}">LIÊN HỆ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -231,7 +231,7 @@
                                     <span class="badge">5</span>
                                     <i class="fal fa-cart-shopping"></i>
                                 </button>
-                                <a href="contact.html" class="th-btn style4 d-none d-xl-block">Book A Table</a>
+                                <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Book A Table</a>
                                 <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                             </div>
                         </div>
