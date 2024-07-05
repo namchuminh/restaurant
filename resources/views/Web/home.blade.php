@@ -179,7 +179,7 @@
                         <div class="header-links">
                             <div class="shape1"></div>
                             <ul>
-                                <li><i class="fas fa-clock"></i> <b>Mondat to Friday:</b> 9:00am - 22:00pm</li>
+                                <li><i class="fas fa-clock"></i> <b>Thứ 2 tới Thứ 7:</b> 9:00 sáng - 22:00 tối</li>
                             </ul>
                         </div>
                     </div>
@@ -224,12 +224,15 @@
                         </div>
                         <div class="col-auto">
                             <div class="header-button">
-                                <button type="button" class="simple-icon searchBoxToggler d-none d-xl-block"><i class="fal fa-search"></i></button>
-                                <button type="button" class="simple-icon sideMenuToggler">
-                                    <span class="badge">5</span>
-                                    <i class="fal fa-cart-shopping"></i>
-                                </button>
-                                <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Book A Table</a>
+                                <a style="color: #1f1f1f;" href="{{ route('web.customer.index') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-user"></i></a>
+                                @if (auth()->check())
+                                    <button type="button" class="simple-icon sideMenuToggler">
+                                        <span class="badge">5</span>
+                                        <i class="fal fa-heart"></i>
+                                    </button>
+                                    <a style="color: #1f1f1f;" href="{{ route('web.customer.logout') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-arrow-right-from-bracket"></i></a>
+                                @endif
+                                <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
                                 <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                             </div>
                         </div>
