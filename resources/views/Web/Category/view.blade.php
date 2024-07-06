@@ -47,7 +47,7 @@
                             </span>
                             <div class="actions">
                                 <a href="{{ route('web.food.view', $food->slug) }}" class="icon-btn"><i class="far fa-eye"></i></a>
-                                <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                <a href="{{ route('web.wishlist.add', $food->id) }}" class="icon-btn"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">

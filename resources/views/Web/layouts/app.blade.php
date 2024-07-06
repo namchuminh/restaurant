@@ -54,85 +54,42 @@
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .alert {
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .alert.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 
 </head>
 
 <body>
-
-    <!--==============================
-    Sidemenu
-============================== -->
-    <div class="sidemenu-wrapper sidemenu-cart ">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_1.png" alt="Cart Image">Egg and Cocumber</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>940.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_2.png" alt="Cart Image">Tofu Red Chili</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>899.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_3.png" alt="Cart Image">Raw Salmon Salad</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>756.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_4.png" alt="Cart Image">Salmon Beef Stack</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>723.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_5.png" alt="Cart Image">Paper Letter Printing</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>Subtotal:</strong>
-                        <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons">
-                        <a href="cart.html" class="th-btn wc-forward">View cart</a>
-                        <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('success') }}
     </div>
-    <div class="popup-search-box d-none d-lg-block">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div><!--==============================
+@endif
+
+@if (session('info'))
+    <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('info') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+<!--==============================
     Mobile Menu
   ============================== -->
     <div class="th-menu-wrapper">
+    
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
@@ -228,10 +185,9 @@
                             <div class="header-button">
                                 <a style="color: #1f1f1f;" href="{{ route('web.customer.index') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-user"></i></a>
                                 @if (auth()->check())
-                                    <button type="button" class="simple-icon sideMenuToggler">
-                                        <span class="badge">5</span>
+                                    <a style="color: #1f1f1f;" href="{{ route('web.wishlist.index') }}" class="simple-icon">
                                         <i class="fal fa-heart"></i>
-                                    </button>
+                                    </a>
                                     <a style="color: #1f1f1f;" href="{{ route('web.customer.logout') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-arrow-right-from-bracket"></i></a>
                                 @endif
                                 <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
@@ -395,6 +351,20 @@
 
     <!-- Main Js File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade-out');
+                    setTimeout(function() {
+                        alert.remove();
+                    }, 500); // Transition duration should match CSS transition time
+                });
+            }, 1500); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </body>
 
 </html>

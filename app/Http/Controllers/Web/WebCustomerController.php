@@ -34,6 +34,8 @@ class WebCustomerController extends Controller
             }
     
             if (Auth::attempt($credentials)) {
+                $userId = Auth::id();
+                session(['user_id' => $userId]);
                 return redirect()->route('web.customer.index');
             }
     
@@ -44,6 +46,7 @@ class WebCustomerController extends Controller
     }
 
     public function logout(){
+        session()->forget('user_id');
         Auth::logout();
         return redirect()->route('web.customer.login');
     }

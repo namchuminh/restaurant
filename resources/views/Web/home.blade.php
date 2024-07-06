@@ -226,10 +226,9 @@
                             <div class="header-button">
                                 <a style="color: #1f1f1f;" href="{{ route('web.customer.index') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-user"></i></a>
                                 @if (auth()->check())
-                                    <button type="button" class="simple-icon sideMenuToggler">
-                                        <span class="badge">5</span>
+                                    <a style="color: #1f1f1f;" href="{{ route('web.wishlist.index') }}" class="simple-icon">
                                         <i class="fal fa-heart"></i>
-                                    </button>
+                                    </a>
                                     <a style="color: #1f1f1f;" href="{{ route('web.customer.logout') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-arrow-right-from-bracket"></i></a>
                                 @endif
                                 <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>

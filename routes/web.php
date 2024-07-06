@@ -19,6 +19,7 @@ use App\Http\Controllers\Web\WebCategoryController;
 use App\Http\Controllers\Web\WebNewsController;
 use App\Http\Controllers\Web\WebContactController;
 use App\Http\Controllers\Web\WebCustomerController;
+use App\Http\Controllers\Web\WebWishListController;
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
@@ -104,7 +105,10 @@ Route::middleware(['guest.custom'])->group(function () {
 Route::middleware(['auth.custom'])->group(function () {
     Route::get('/dang-xuat', [WebCustomerController::class, 'logout'])->name('web.customer.logout');
     Route::get('/khach-hang', [WebCustomerController::class, 'index'])->name('web.customer.index');
-    Route::get('/yeu-thich', [WebCustomerController::class, 'wishlist'])->name('web.customer.wishlist');
+
+    Route::get('/yeu-thich', [WebWishListController::class, 'index'])->name('web.wishlist.index');
+    Route::get('/yeu-thich/them/{id}', [WebWishListController::class, 'add'])->name('web.wishlist.add');
+    Route::get('/yeu-thich/xoa/{id}', [WebWishListController::class, 'delete'])->name('web.wishlist.delete');
 });
 
 
