@@ -20,6 +20,7 @@ use App\Http\Controllers\Web\WebNewsController;
 use App\Http\Controllers\Web\WebContactController;
 use App\Http\Controllers\Web\WebCustomerController;
 use App\Http\Controllers\Web\WebWishListController;
+use App\Http\Controllers\Web\WebOrderController;
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login')->middleware('notadmin');
@@ -109,6 +110,9 @@ Route::middleware(['auth.custom'])->group(function () {
     Route::get('/yeu-thich', [WebWishListController::class, 'index'])->name('web.wishlist.index');
     Route::get('/yeu-thich/them/{id}', [WebWishListController::class, 'add'])->name('web.wishlist.add');
     Route::get('/yeu-thich/xoa/{id}', [WebWishListController::class, 'delete'])->name('web.wishlist.delete');
+
+    Route::get('/dat-ban', [WebOrderController::class, 'index'])->name('web.order.index');
+    Route::post('/dat-ban', [WebOrderController::class, 'order'])->name('web.order.order');
 });
 
 

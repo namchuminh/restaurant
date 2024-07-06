@@ -72,22 +72,47 @@
                         <span class="sub-title4">Bạn cần đặt bàn?</span>
                         <h2 class="sec-title">Để Lại Thông Tin Đặt Bàn Dưới Đây!</h2>
                     </div>
-                    <form action="mail.php" method="POST" class="reservation-form3 input-white">
+                    <form action="{{ route('web.order.order') }}" method="POST" class="reservation-form3 input-white">
+                        @csrf
                         <div class="row">
                             <div class="form-group col-12">
-                                <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
-                                <i class="fal fa-phone"></i>
-                            </div>
-                            <div class="form-group col-12">
-                                <input type="text" class="date-time-pick form-control" name="date-time" id="date-time-pick" placeholder="Date & Time">
+                                <input type="text" class="date-pick form-control" name="date" id="date-pick" placeholder="Ngày" value="{{ old('date') }}">
                                 <i class="fal fa-calendar-alt"></i>
+                                @error('date')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group col-12">
-                                <input type="text" class="form-control" name="people" id="people" placeholder="Total Person">
+                                <input type="text" class="time-pick form-control" name="time" id="time-pick" placeholder="Giờ" value="{{ old('time') }}">
+                                <i class="fal fa-clock"></i>
+                                @error('time')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="text" class="form-control" name="people" id="people" placeholder="Số người" value="{{ old('people') }}">
                                 <i class="fal fa-user-group"></i>
+                                @error('people')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <select name="table_id" id="" class="form-control">
+                                    <option value="" hidden>Chọn bàn</option>
+                                    @foreach ($tables as $table)
+                                        <option value="{{ $table->id }}">{{ $table->name }} - {{ $table->address }} - {{ $table->quantity }} người</option>
+                                    @endforeach
+                                </select>
+                                @error('table_id')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                        <button class="th-btn">Reservation Now</button>
+                        @if(auth()->check())
+                            <button type="submit" class="th-btn w-100">ĐẶT BÀN</button>
+                        @else
+                            <a href="{{ route('web.customer.login') }}" class="th-btn w-100">ĐĂNG NHẬP & ĐẶT BÀN</a>
+                        @endif
                         <p class="form-messages mb-0 mt-3"></p>
                     </form>
                 </div>

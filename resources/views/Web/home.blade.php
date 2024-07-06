@@ -54,78 +54,37 @@
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .alert {
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
 
+        .alert.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="sidemenu-wrapper sidemenu-cart ">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_1.png" alt="Cart Image">Egg and Cocumber</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>940.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_2.png" alt="Cart Image">Tofu Red Chili</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>899.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_3.png" alt="Cart Image">Raw Salmon Salad</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>756.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_4.png" alt="Cart Image">Salmon Beef Stack</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>723.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/menu_thumb_5.png" alt="Cart Image">Paper Letter Printing</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>Subtotal:</strong>
-                        <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons">
-                        <a href="cart.html" class="th-btn wc-forward">View cart</a>
-                        <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('success') }}
     </div>
-    <div class="popup-search-box d-none d-lg-block">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div><!--==============================
+@endif
+
+@if (session('info'))
+    <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('info') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show text-center" style="margin-bottom: 0;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+    <!--==============================
     Mobile Menu
   ============================== -->
     <div class="th-menu-wrapper">
@@ -231,7 +190,7 @@
                                     </a>
                                     <a style="color: #1f1f1f;" href="{{ route('web.customer.logout') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-arrow-right-from-bracket"></i></a>
                                 @endif
-                                <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
+                                <a href="{{ route('web.order.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
                                 <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                             </div>
                         </div>
@@ -264,7 +223,7 @@ Hero Area
                             <h1 class="hero-title2">Đơn Giản</h1>
                             <h2 class="hero-title3">Đa Sắc</h2>
                             <div class="title-ani2">
-                                <a href="shop.html" class="th-btn style3">ĐẶT BÀN</a>
+                                <a href="{{ route('web.order.index') }}" class="th-btn style3">ĐẶT BÀN</a>
                             </div>
                         </div>
                     </div>
@@ -279,22 +238,48 @@ Contact Area
 ==============================-->
             <div class="py-5 bg-smoke2">
                 <div class="container py-2 my-4">
-                    <form action="mail.php" method="POST" class="reservation-form2 input-white">
+                    <form action="{{ route('web.order.order') }}" method="POST" class="reservation-form2 input-white">
+                        @csrf
                         <div class="row">
                             <div class="form-group col-lg-3 col-sm-6">
-                                <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
-                                <i class="fal fa-phone"></i>
-                            </div>
-                            <div class="form-group col-lg-3 col-sm-6">
-                                <input type="text" class="date-time-pick form-control" name="date-time" id="date-time-pick" placeholder="Date & Time">
+                                <input type="text" class="date-pick form-control" name="date" id="date-pick" placeholder="Ngày" value="{{ old('date') }}">
                                 <i class="fal fa-calendar-alt"></i>
+                                @error('date')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group col-lg-3 col-sm-6">
-                                <input type="text" class="form-control" name="people" id="people" placeholder="Total Person">
-                                <i class="fal fa-user-group"></i>
+                                <input type="text" class="time-pick form-control" name="time" id="time-pick" placeholder="Giờ" value="{{ old('time') }}">
+                                <i class="fal fa-clock"></i>
+                                @error('time')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <div class="form-btn col-lg-3 col-sm-6">
-                                <button class="th-btn w-100">Reservation Now</button>
+                            <div class="form-group col-lg-3 col-sm-6">
+                                <input type="text" class="form-control" name="people" id="people" placeholder="Số người" value="{{ old('people') }}">
+                                <i class="fal fa-user-group"></i>
+                                @error('people')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group col-lg-3 col-sm-6">
+                                <select name="table_id" id="" class="form-control">
+                                    <option value="" hidden>Chọn bàn</option>
+                                    @foreach ($tables as $table)
+                                        <option value="{{ $table->id }}">{{ $table->name }} - {{ $table->address }} - {{ $table->quantity }} người</option>
+                                    @endforeach
+                                </select>
+                                @error('table_id')
+                                    <p class="form-messages d-flex" style="justify-content: center; margin-top: 15px; margin-bottom: 0px;">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-btn col-lg-12 col-sm-6">
+                                @if(auth()->check())
+                                    <button class="th-btn w-100">ĐẶT BÀN</button>
+                                @else
+                                    <a href="{{ route('web.customer.login') }}" class="th-btn w-100">ĐĂNG NHẬP & ĐẶT BÀN</a>
+                                @endif
+                                
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>
@@ -392,15 +377,44 @@ Menu Area
                     </div>
                     <div class="mt-5 pt-xl-2 text-center">
                         <div class="text-ani">
-                            <a href="shop.html" class="th-btn style-border">Xem Tất Cả</a>
+                            <a href="{{ route('web.food.list') }}" class="th-btn style-border">Xem Tất Cả</a>
                         </div>
                     </div>
                 </div>
             </section>
+            <div class="overflow-hidden bg-smoke" id="about-sec">
+                <div class="shape-mockup moving" data-top="10%" data-right="4%"><img src="assets/img/shape/garlic_3.png" alt="shape"></div>
+                <div class="shape-mockup spin d-none d-lg-block" data-bottom="5%" data-right="3%"><img src="assets/img/shape/flower_5.png" alt="shape"></div>
+                <div class="container">
+                    <div class="row gx-0">
+                        <div class="col-xl-6">
+                            <div class="img-box4">
+                                <img src="assets/img/normal/about_2_1.jpg" data-speed="auto" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 text-center text-xl-start space align-self-center">
+                            <div class="about-space1">
+                                <div class="title-area pe-xl-4 mb-35">
+                                    <span class="sub-title2">About Us Restaurant</span>
+                                    <h2 class="sec-title">The Artistry Behind the Menu</h2>
+                                    <div class="text-ani">
+                                        <p class="sec-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order.</p>
+                                        <p class="sec-text">Elevate your dining experience with our extensive selection of fine wines and expertly crafted cocktails.</p>
+                                    </div>
+
+                                </div>
+                                <div class="text-ani">
+                                    <a href="about.html" class="th-btn style-border smoke-bg">More About Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--==============================
 Brand Area  
 ==============================-->
-            <div class="space" style="padding-top: 0px;">
+            <div class="space">
                 <div class="container">
                     <div class="swiper th-slider" id="brandSlider1" data-slider-options='{"spaceBetween":45,"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"},"1300":{"slidesPerView":"5"},"1500":{"slidesPerView":"5"}}}'>
                         <div class="swiper-wrapper">
@@ -461,7 +475,7 @@ Brand Area
             <!--==============================
 Menu Area  
 ==============================-->
-            <section class="overflow-hidden bg-fixed " data-bg-src="assets/img/bg/menu_bg_2.jpg" data-overlay="theme" data-opacity="6">
+            <section class="overflow bg-fixed " data-bg-src="assets/img/bg/menu_bg_2.jpg" data-overlay="theme" data-opacity="6">
                 <div class="container">
                     <div class="row gx-0 justify-content-center">
                         <div class="col-xl-9">
@@ -809,11 +823,11 @@ Blog Area
                                     <h3 class="widget_title">Khách Hàng</h3>
                                     <div class="menu-all-pages-container">
                                         <ul class="menu">
-                                            <li><a href="shop.html">Đặt Bàn</a></li>
-                                            <li><a href="shop.html">Đăng Nhập</a></li>
-                                            <li><a href="shop.html">Đăng Ký</a></li>
-                                            <li><a href="shop.html">Liên Hệ</a></li>
-                                            <li><a href="shop.html">Yêu Thích</a></li>
+                                            <li><a href="{{ route('web.order.index') }}">Đặt Bàn</a></li>
+                                            <li><a href="{{ route('web.customer.login') }}">Đăng Nhập</a></li>
+                                            <li><a href="{{ route('web.customer.register') }}">Đăng Ký</a></li>
+                                            <li><a href="{{ route('web.contact.index') }}">Liên Hệ</a></li>
+                                            <li><a href="{{ route('web.wishlist.index') }}">Yêu Thích</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -906,6 +920,20 @@ Blog Area
 
     <!-- Main Js File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade-out');
+                    setTimeout(function() {
+                        alert.remove();
+                    }, 500); // Transition duration should match CSS transition time
+                });
+            }, 1500); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </body>
 
 </html>

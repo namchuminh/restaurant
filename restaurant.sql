@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2024 at 10:02 AM
+-- Generation Time: Jul 06, 2024 at 07:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -69,7 +69,7 @@ CREATE TABLE `configs` (
 --
 
 INSERT INTO `configs` (`id`, `title`, `description`, `logo`, `favicon`, `phone`, `email`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'Web nhà hàng ABCD', 'Hệ thống nhà hàng abcde', '/storage/images/SwugLPPVpiuFjhLclmDTqEUcbL9WKunoEcfxZ89n.jpg', 'https://img.freepik.com/free-vector/colorful-letter-gradient-logo-design_474888-2309.jpg', '0379962045', 'nhahang@gmail.com', 'Cầu Giấy, Hà Nội', '2024-06-23 07:46:43', '2024-06-23 00:56:31');
+(1, 'Web nhà hàng ABCD', 'Hệ thống nhà hàng abcde', '/storage/images/kF7iRNqP1iVa61u4yqZwEUcBjbjxkgLB2otJSMry.svg', '/storage/images/xR6unia4KHgL4INmvghnlvNQVBukDLnAtw0kcbKq.png', '0379962045', 'nhahang@gmail.com', 'Cầu Giấy, Hà Nội', '2024-06-23 07:46:43', '2024-07-03 13:54:41');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `type`, `content`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Liên hệ mẫu', 2, '2024-06-23 06:39:11', '2024-06-23 06:39:14');
+(1, 1, 'Liên hệ mẫu', 2, '2024-06-23 06:39:11', '2024-06-23 06:39:14'),
+(5, 1, 'ABCDE', 3, '2024-07-05 04:25:35', '2024-07-05 04:25:35'),
+(6, 3, 'Đặt số lượng 10 bàn vào ngày 10 tháng 5 nhé', 3, '2024-07-05 04:26:23', '2024-07-05 04:26:23');
 
 -- --------------------------------------------------------
 
@@ -149,7 +151,26 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `description`, `quantity`, `sale`, `price`, `image`, `slug`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'Đậu Tẩm Hành', 'Món đậu tẩm hành gfdsafgdfssdg', 15, 50000, 21000, 'food/myqOJkQmQ1oV7fyS3WY3TxwEReeKjBgm2plpfFmU.png', 'dau-tam-hanh', 4, '2024-06-15 04:08:58', '2024-06-15 04:42:14');
+(1, 'Đậu Tẩm Hành', 'Món đậu tẩm hành gfdsafgdfssdg', 15, 50000, 21000, 'food/myqOJkQmQ1oV7fyS3WY3TxwEReeKjBgm2plpfFmU.png', 'dau-tam-hanh', 4, '2024-06-15 04:08:58', '2024-06-15 04:42:14'),
+(3, 'Món Nhậu Ngon Mùa Hè', 'abcde', 14, 50000, 20000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-nhau-ngon-mua-he', 3, '2024-07-02 22:03:23', '2024-07-02 22:03:23'),
+(4, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(5, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(6, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(7, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(8, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(9, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(10, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(11, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(12, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(13, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(14, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(15, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(16, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(17, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(18, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(19, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(20, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07'),
+(21, 'Món mới 2', 'Món mới 2', 15, 150000, 120000, 'foods/HGnzdsydAVtyNHtgYoc6TK4RjCCDfYHl329XMk87.jpg', 'mon-an-2', 3, '2024-07-03 06:35:07', '2024-07-03 06:35:07');
 
 -- --------------------------------------------------------
 
@@ -181,7 +202,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (93, '2024_06_14_164423_create_configs_table', 4),
 (94, '2024_06_23_052138_add_status_to_tables', 5),
 (95, '2024_06_23_055228_add_status_to_users', 6),
-(96, '2024_06_23_063427_create_contacts_table', 7);
+(96, '2024_06_23_063427_create_contacts_table', 7),
+(97, '2024_07_06_075055_create_wishlists_table', 8),
+(98, '2024_07_06_161800_update_orders_table', 9);
 
 -- --------------------------------------------------------
 
@@ -205,7 +228,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `name`, `content`, `image`, `slug`, `category_id`, `created_at`, `updated_at`) VALUES
-(2, 'Thiếu vitamin D ảnh hưởng đến trí nhớ thế nào', '<p>Bác sĩ chuyên khoa 2 Huỳnh Tấn Vũ, Đơn vị Điều trị Ban ngày, Bệnh viện Đại học Y Dược TP.HCM - cơ sở 3, cho biết hiện nay xu hướng \"ăn sáng giờ trưa\" hay ăn sáng kết hợp trưa trong một bữa, đang trở nên phổ biến, đặc biệt là trong giới trẻ và những người làm việc văn phòng. Theo nhiều người, điều này giúp tiết kiệm thời gian, chi phí và có tác dụng giảm cân vì \"nhịn ăn gián đoạn\". Tuy nhiên, không phải ai cũng phù hợp với phương pháp này. Việc bỏ <a href=\"https://thanhnien.vn/bua-sang-tags493619.html\">bữa sáng</a> có thể gây ra nhiều tác động tiêu cực đến sức khỏe đối với một số người.</p><h2><strong>Ảnh hưởng đến năng lượng, tinh thần</strong></h2><p>Bữa sáng giúp tái cung cấp năng lượng cho cơ thể sau một khoảng thời gian dài qua đêm, giúp não và cơ thể được cung cấp nguồn năng lượng cho một ngày mới làm việc hoặc học tập hiệu quả.</p><p>\"Việc ăn sáng trễ có thể khiến cơ thể không phục hồi dự trữ glycogen (vai trò chất dự trữ năng lượng cho cơ thể) sau một đêm gây hạ đường huyết. Cùng với đó, có thể khiến cơ thể cảm thấy <a href=\"https://thanhnien.vn/met-moi-tags1179769.html\">mệt mỏi</a>, lo lắng, bồn chồn và không tập trung trong công việc hoặc học tập. Hiệu suất làm việc vì thế cũng giảm sút đáng kể\", bác sĩ Vũ chia sẻ.</p><p><a href=\"https://images2.thanhnien.vn/528068263637045248/2024/6/14/c8389972-7c8b-4f29-ad17-f6e626d3e2fc-17183362736511585348882.jpg\"><img src=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/c8389972-7c8b-4f29-ad17-f6e626d3e2fc-17183362736511585348882.jpg\" alt=\"Bác sĩ nói gì về thói quen ăn sáng kết hợp trưa trong một bữa?- Ảnh 1.\" width=\"1276\" height=\"956\"></a></p><h2><strong>Tăng nguy cơ ăn quá nhiều vào các bữa khác</strong></h2><p>Với những người coi bữa sáng là chủ đạo, việc hạn chế hoặc thậm chí nhịn ăn sáng có thể giúp họ giảm cân. Tuy nhiên, đối với những người ăn chính vào bữa trưa và tối thì việc nhịn bữa sáng có thể khiến họ ăn uống nhiều hơn vào bữa trưa, tối và chọn các thực phẩm không lành mạnh, dẫn đến việc tích tụ mỡ thừa và tăng cân.</p><h2><strong>Tăng nguy cơ mắc các bệnh mạn tính</strong></h2><p>Một số nghiên cứu cho thấy bỏ bữa sáng có thể làm tăng nguy cơ mắc bệnh tim mạch, cao huyết áp và tiểu đường loại 2.</p><h2><strong>Thiếu hụt chất dinh dưỡng và vitamin</strong></h2><p>Một nghiên cứu năm 2014 về tác động của bữa sáng đối với trẻ em và thanh thiếu niên. Kết quả cho thấy những người không ăn sáng sẽ thiếu vitamin D, vitamin A, canxi, sắt và magie, phốt pho và kẽm, có thể dẫn đến mất ngủ, trầm cảm, tăng nguy cơ mắc nhiễm trùng... Lâu dài khiến sức khỏe giảm sút, dễ mắc bệnh hơn.</p><figure class=\"image\"><img style=\"aspect-ratio:1280/960;\" src=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg\" alt=\"Bác sĩ nói gì về thói quen ăn sáng kết hợp trưa trong một bữa?- Ảnh 2.\" srcset=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg 1x,https://images2.thanhnien.vn/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg 2x\" sizes=\"100vw\" width=\"1280\" height=\"960\"></figure><p>Không ăn sáng và sau đó tiêu thụ một lượng lớn thức ăn vào buổi trưa khiến một số người có thể gặp vấn đề về tiêu hóa</p><p>LÊ CẦM</p><h2><strong>Gây ra vấn đề về hệ tiêu hóa</strong></h2><p>Không ăn sáng và sau đó tiêu thụ một lượng lớn thức ăn vào buổi trưa khiến một số người có thể gặp vấn đề về tiêu hóa như trào ngược <a href=\"https://thanhnien.vn/da-day-tags525250.html\">dạ dày</a>,&nbsp;đau bụng, viêm loét dạ dày,… Nhịn ăn sáng không chỉ khiến cơ thể bị bỏ đói, căng thẳng mà còn làm kích thích hệ tiêu hóa khiến cho thói quen đi vệ sinh hằng ngày bị thay đổi gây chứng tiêu chảy, buồn nôn hoặc bị táo bón.</p><p>Ở góc độ giảm cân, theo bác sĩ Vũ mặc dù một số người có thể giảm cân khi chỉ ăn 2 bữa mỗi ngày, nhưng điều này không đảm bảo hiệu quả và bền vững cho tất cả mọi người. Việc giảm cân phụ thuộc vào nhiều yếu tố, bao gồm tổng lượng calo tiêu thụ, chất lượng thực phẩm, mức độ hoạt động thể chất và lối sống tổng thể. Nếu cần, nên tham khảo ý kiến của bác sĩ hoặc chuyên gia dinh dưỡng để có kế hoạch giảm cân phù hợp và an toàn.</p>', 'news/i9IuqDlMJDqMkUZtWs589BvbzYHiCqcemstJqXQK.png', 'thieu-vitamin-d-anh-huong-den-tri-nho-the-nao', 4, '2024-06-15 02:55:16', '2024-06-15 03:14:48');
+(2, 'Thiếu vitamin D ảnh hưởng đến trí nhớ thế nào', '<p>Bác sĩ chuyên khoa 2 Huỳnh Tấn Vũ, Đơn vị Điều trị Ban ngày, Bệnh viện Đại học Y Dược TP.HCM - cơ sở 3, cho biết hiện nay xu hướng \"ăn sáng giờ trưa\" hay ăn sáng kết hợp trưa trong một bữa, đang trở nên phổ biến, đặc biệt là trong giới trẻ và những người làm việc văn phòng. Theo nhiều người, điều này giúp tiết kiệm thời gian, chi phí và có tác dụng giảm cân vì \"nhịn ăn gián đoạn\". Tuy nhiên, không phải ai cũng phù hợp với phương pháp này. Việc bỏ <a href=\"https://thanhnien.vn/bua-sang-tags493619.html\">bữa sáng</a> có thể gây ra nhiều tác động tiêu cực đến sức khỏe đối với một số người.</p><h2><strong>Ảnh hưởng đến năng lượng, tinh thần</strong></h2><p>Bữa sáng giúp tái cung cấp năng lượng cho cơ thể sau một khoảng thời gian dài qua đêm, giúp não và cơ thể được cung cấp nguồn năng lượng cho một ngày mới làm việc hoặc học tập hiệu quả.</p><p>\"Việc ăn sáng trễ có thể khiến cơ thể không phục hồi dự trữ glycogen (vai trò chất dự trữ năng lượng cho cơ thể) sau một đêm gây hạ đường huyết. Cùng với đó, có thể khiến cơ thể cảm thấy <a href=\"https://thanhnien.vn/met-moi-tags1179769.html\">mệt mỏi</a>, lo lắng, bồn chồn và không tập trung trong công việc hoặc học tập. Hiệu suất làm việc vì thế cũng giảm sút đáng kể\", bác sĩ Vũ chia sẻ.</p><p><a href=\"https://images2.thanhnien.vn/528068263637045248/2024/6/14/c8389972-7c8b-4f29-ad17-f6e626d3e2fc-17183362736511585348882.jpg\"><img src=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/c8389972-7c8b-4f29-ad17-f6e626d3e2fc-17183362736511585348882.jpg\" alt=\"Bác sĩ nói gì về thói quen ăn sáng kết hợp trưa trong một bữa?- Ảnh 1.\" width=\"1276\" height=\"956\"></a></p><h2><strong>Tăng nguy cơ ăn quá nhiều vào các bữa khác</strong></h2><p>Với những người coi bữa sáng là chủ đạo, việc hạn chế hoặc thậm chí nhịn ăn sáng có thể giúp họ giảm cân. Tuy nhiên, đối với những người ăn chính vào bữa trưa và tối thì việc nhịn bữa sáng có thể khiến họ ăn uống nhiều hơn vào bữa trưa, tối và chọn các thực phẩm không lành mạnh, dẫn đến việc tích tụ mỡ thừa và tăng cân.</p><h2><strong>Tăng nguy cơ mắc các bệnh mạn tính</strong></h2><p>Một số nghiên cứu cho thấy bỏ bữa sáng có thể làm tăng nguy cơ mắc bệnh tim mạch, cao huyết áp và tiểu đường loại 2.</p><h2><strong>Thiếu hụt chất dinh dưỡng và vitamin</strong></h2><p>Một nghiên cứu năm 2014 về tác động của bữa sáng đối với trẻ em và thanh thiếu niên. Kết quả cho thấy những người không ăn sáng sẽ thiếu vitamin D, vitamin A, canxi, sắt và magie, phốt pho và kẽm, có thể dẫn đến mất ngủ, trầm cảm, tăng nguy cơ mắc nhiễm trùng... Lâu dài khiến sức khỏe giảm sút, dễ mắc bệnh hơn.</p><figure class=\"image\"><img style=\"aspect-ratio:1280/960;\" src=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg\" alt=\"Bác sĩ nói gì về thói quen ăn sáng kết hợp trưa trong một bữa?- Ảnh 2.\" srcset=\"https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg 1x,https://images2.thanhnien.vn/528068263637045248/2024/6/14/9adc24a7-c21a-48bb-8120-e678ae27c1d7-1718336538793200122305.jpg 2x\" sizes=\"100vw\" width=\"1280\" height=\"960\"></figure><p>Không ăn sáng và sau đó tiêu thụ một lượng lớn thức ăn vào buổi trưa khiến một số người có thể gặp vấn đề về tiêu hóa</p><p>LÊ CẦM</p><h2><strong>Gây ra vấn đề về hệ tiêu hóa</strong></h2><p>Không ăn sáng và sau đó tiêu thụ một lượng lớn thức ăn vào buổi trưa khiến một số người có thể gặp vấn đề về tiêu hóa như trào ngược <a href=\"https://thanhnien.vn/da-day-tags525250.html\">dạ dày</a>,&nbsp;đau bụng, viêm loét dạ dày,… Nhịn ăn sáng không chỉ khiến cơ thể bị bỏ đói, căng thẳng mà còn làm kích thích hệ tiêu hóa khiến cho thói quen đi vệ sinh hằng ngày bị thay đổi gây chứng tiêu chảy, buồn nôn hoặc bị táo bón.</p><p>Ở góc độ giảm cân, theo bác sĩ Vũ mặc dù một số người có thể giảm cân khi chỉ ăn 2 bữa mỗi ngày, nhưng điều này không đảm bảo hiệu quả và bền vững cho tất cả mọi người. Việc giảm cân phụ thuộc vào nhiều yếu tố, bao gồm tổng lượng calo tiêu thụ, chất lượng thực phẩm, mức độ hoạt động thể chất và lối sống tổng thể. Nếu cần, nên tham khảo ý kiến của bác sĩ hoặc chuyên gia dinh dưỡng để có kế hoạch giảm cân phù hợp và an toàn.</p>', 'news/i9IuqDlMJDqMkUZtWs589BvbzYHiCqcemstJqXQK.png', 'thieu-vitamin-d-anh-huong-den-tri-nho-the-nao', 4, '2024-06-15 02:55:16', '2024-06-15 03:14:48'),
+(3, 'Bài viết mới', 'Bài viết mới', 'news/i9IuqDlMJDqMkUZtWs589BvbzYHiCqcemstJqXQK.png', 'bai-biet-moi', 5, '2024-07-04 15:38:42', '2024-07-04 15:38:42');
 
 -- --------------------------------------------------------
 
@@ -216,7 +240,6 @@ INSERT INTO `news` (`id`, `name`, `content`, `image`, `slug`, `category_id`, `cr
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `code` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
   `people` int(11) NOT NULL DEFAULT 1,
   `payment` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 1,
@@ -224,8 +247,22 @@ CREATE TABLE `orders` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `table_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `time_order` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `code`, `people`, `payment`, `status`, `amount`, `user_id`, `table_id`, `created_at`, `updated_at`, `time_order`) VALUES
+(1, '9V415KIJPC', 5, 0, 1, 0, 3, 4, '2024-07-06 09:55:22', '2024-07-06 09:55:22', '2024-07-16 20:00:00'),
+(2, 'Z71TH6939S', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:27', '2024-07-06 10:20:27', '2024-07-16 21:30:00'),
+(3, 'F25QSU279D', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:44', '2024-07-06 10:20:44', '2024-07-24 02:30:00'),
+(4, '0BAPO41R8Y', 6, 0, 1, 0, 3, 4, '2024-07-06 10:21:16', '2024-07-06 10:21:16', '2024-07-31 03:00:00'),
+(5, '7RRTP7B8CG', 3, 0, 1, 0, 3, 4, '2024-07-06 10:22:19', '2024-07-06 10:22:19', '2024-07-29 03:00:00'),
+(6, 'U928IWR1ZY', 6, 0, 1, 0, 3, 4, '2024-07-06 10:23:12', '2024-07-06 10:23:12', '2024-08-18 20:00:00'),
+(7, '7IVDB82A57', 6, 0, 1, 0, 3, 4, '2024-07-06 10:28:12', '2024-07-06 10:28:12', '2024-07-21 02:30:00');
 
 -- --------------------------------------------------------
 
@@ -279,7 +316,7 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `name`, `address`, `quantity`, `status`, `created_at`, `updated_at`) VALUES
-(4, 'Bàn Số 01', 'Tầng 1, Phía Cửa Chính', 6, 0, '2024-06-22 22:27:16', '2024-06-22 22:49:06');
+(4, 'Bàn Số 01', 'Tầng 1, Phía Cửa Chính', 6, 0, '2024-06-22 22:27:16', '2024-06-23 01:13:44');
 
 -- --------------------------------------------------------
 
@@ -307,7 +344,30 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `phone`, `role`, `status`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@gmail.com', NULL, '0999888999', 1, 1, '$2y$10$tkOwHK6UxxCCs19y5jX9x./Q7rYfva08JnAttEl7p/zZM/7jnI8AC', NULL, '2024-06-14 11:06:02', '2024-06-23 01:00:58'),
-(2, 'Nguyen Van An', 'nguyenvana@gmail.com', NULL, '0999888999', 0, 1, '$2y$10$eRy.HPOk5/DsnwaYWb7cOO9lYYLDp.yIeltm9GGwkOurAL9De.leS', NULL, '2024-06-14 11:07:44', '2024-06-22 23:31:01');
+(2, 'Nguyen Van An', 'nguyenvana@gmail.com', NULL, '0999888999', 0, 1, '$2y$10$tkOwHK6UxxCCs19y5jX9x./Q7rYfva08JnAttEl7p/zZM/7jnI8AC', NULL, '2024-06-14 11:07:44', '2024-06-22 23:31:01'),
+(3, 'Nguyễn Văn Bình', 'nguyenvanb@gmail.com', NULL, '0666888999', 0, 1, '$2y$10$/PrRVryP2FjYVveVHQuEFO6Mg8Zt.m8iSmfpKy4uoqLH2d2dQeNum', NULL, '2024-07-05 00:40:06', '2024-07-05 00:40:06'),
+(4, 'Nam Nguyễn Văn', 'nguyenvannam@gmail.com', NULL, '0444555666', 0, 1, '$2y$10$cGLyYyM8vr1WGC3pTVQoPu/2MkMl4QFostpPyPnyTsuVbxVQtI12u', NULL, '2024-07-05 00:45:39', '2024-07-05 00:45:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlists`
+--
+
+CREATE TABLE `wishlists` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `food_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `user_id`, `food_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, '2024-07-06 01:15:06', '2024-07-06 01:15:06');
 
 --
 -- Indexes for dumped tables
@@ -403,6 +463,14 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `wishlists_user_id_foreign` (`user_id`),
+  ADD KEY `wishlists_food_id_foreign` (`food_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -422,7 +490,7 @@ ALTER TABLE `configs`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `detail_orders`
@@ -440,25 +508,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -476,7 +544,13 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -513,6 +587,13 @@ ALTER TABLE `news`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_table_id_foreign` FOREIGN KEY (`table_id`) REFERENCES `tables` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  ADD CONSTRAINT `wishlists_food_id_foreign` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `wishlists_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

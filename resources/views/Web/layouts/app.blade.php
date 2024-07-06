@@ -190,7 +190,7 @@
                                     </a>
                                     <a style="color: #1f1f1f;" href="{{ route('web.customer.logout') }}" class="simple-icon d-none d-xl-block color-dark"><i class="fal fa-arrow-right-from-bracket"></i></a>
                                 @endif
-                                <a href="{{ route('web.contact.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
+                                <a href="{{ route('web.order.index') }}" class="th-btn style4 d-none d-xl-block">Đặt Bàn</a>
                                 <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                             </div>
                         </div>
@@ -262,11 +262,11 @@
                                     <h3 class="widget_title">Khách Hàng</h3>
                                     <div class="menu-all-pages-container">
                                         <ul class="menu">
-                                            <li><a href="shop.html">Đặt Bàn</a></li>
-                                            <li><a href="shop.html">Đăng Nhập</a></li>
-                                            <li><a href="shop.html">Đăng Ký</a></li>
-                                            <li><a href="shop.html">Liên Hệ</a></li>
-                                            <li><a href="shop.html">Yêu Thích</a></li>
+                                            <li><a href="{{ route('web.order.index') }}">Đặt Bàn</a></li>
+                                            <li><a href="{{ route('web.customer.login') }}">Đăng Nhập</a></li>
+                                            <li><a href="{{ route('web.customer.register') }}">Đăng Ký</a></li>
+                                            <li><a href="{{ route('web.contact.index') }}">Liên Hệ</a></li>
+                                            <li><a href="{{ route('web.wishlist.index') }}">Yêu Thích</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -7,6 +7,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Food;
+use App\Models\Table;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,7 @@ class HomeController extends Controller
         }])->get();
         $foods = Food::limit(8)->get();
         $news = News::with('category')->orderBy('id', 'desc')->limit(6)->get();
-        return view('Web/home', compact('categories', 'foods', 'news'));
+        $tables = Table::orderBy('id', 'DESC')->get();
+        return view('Web/home', compact('categories', 'foods', 'news', 'tables'));
     }
 }

@@ -17,9 +17,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct()
-    {
-        $this->middleware('auth.custom')->except(['login', 'register']);
-        
+    {        
         $listMenuCategory = Category::all();
         View::share('listMenuCategory', $listMenuCategory);
 
