@@ -39,4 +39,12 @@ class Order extends Model
         }
         return $randomString;
     }
+
+    public function table(){
+        return $this->belongsTo(Table::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

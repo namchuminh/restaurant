@@ -1,0 +1,138 @@
+@extends('Admin.layouts.app')
+@section('title', 'Danh sách hóa đơn')
+@section('content')
+
+<section class="content-header">
+    <div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+        <h1>Quản Lý Hóa Đơn</h1>
+        </div>
+        <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.order.index') }}">Quản Lý Hóa Đơn</a></li>
+            <li class="breadcrumb-item active">Hóa Đơn {{ $order->code }}</li>
+        </ol>
+        </div>
+    </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+        <div class="card">
+            <h4 class="text-center mt-3">Thông Tin Hóa Đơn</h4>
+            <div style="line-height: 20px;word-spacing: 2px;" class="m-3 detail-order">
+                <span style="display: flex;">
+                    <b>Mã Hóa Đơn: </b>
+                    <p style="margin-left: 10px;">{{ $order->code }}</p>
+                </span>
+                <span style="display: flex;">
+                    <b>Bàn Ăn: </b>
+                    <p style="margin-left: 10px;">{{ $order->table->name }}</p>
+                </span>
+                <span style="display: flex;">
+                    <b>Người Đặt Bàn: </b>
+                    <p style="margin-left: 10px;">{{ $order->user->name }}</p>
+                </span>
+                <span style="display: flex;">
+                    <b>Tổng Số Người: </b>
+                    <p style="margin-left: 10px;">{{ $order->people }} người</p>
+                </span>
+                <span style="display: flex;">
+                    <b>Khách Đặt Hẹn: </b>
+                    <p style="margin-left: 10px;">{{ $order->time_order }}</p>
+                </span>
+                <span style="display: flex;">
+                    <b>Thanh Toán: </b>
+                    <p style="margin-left: 10px;">
+                        @if ($order->payment == 0)
+                            Chưa Thanh Toán
+                        @else
+                            Đã Thanh Toán
+                        @endif
+                    </p>
+                </span>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="not_print">Hình Ảnh</th>
+                    <th>Tên Món Ăn</th>
+                    <th>Giá Bán</th>
+                    <th>Số Lượng</th>
+                    <th>Đơn Giá</th>
+                </tr>
+                </thead>
+                <tbody>
+                        <!-- <tr>
+                            <td></td>
+                            <td class="not_print">
+                                <img style="width: 100px; height: 100px;" src="">
+                            </td>
+                            <td></td>
+                            <td> VND</td>
+                            <td>
+                                 sản phẩm
+                            </td>
+                            <td>
+                                VND
+                            </td>
+                        </tr> -->
+                </tbody>
+            </table>
+            <div class="text-right mt-2 d-flex justify-content-end mr-4">
+                <span class="d-flex m-1">
+                    <b>Tổng Tiền: </b>
+                    <p style="margin-left: 5px;">
+                        @php
+                            echo number_format($order->amount);
+                        @endphp
+                        VND
+                    </p>
+                </span>
+            </div>
+            </div>
+            <div class="card-footer clearfix" style="background: white;">
+                <a class="btn btn-success not_print" href="{{ route('admin.order.index') }}">Quay Lại</a>
+                <button class="btn btn-primary not_print" onclick="window.print()">In Hóa Đơn</button>
+                @if ($order->payment == 0)
+                    <a class="btn btn-warning not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Xác Nhận Thanh Toán</a>
+                @endif
+                @if ($order->payment == 0)
+                    <a class="btn btn-success not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Thêm Món Ăn</a>
+                @endif
+            </div>
+        </div>
+        <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+@endsection
+@section('css')
+<style type="text/css">
+  @media print{
+    .main-footer{
+      display: none !important;
+    }
+
+    .content-wrapper{
+      background-color: white;
+    }
+
+    .not_print{
+      display: none !important;
+    }
+
+  }
+</style>
+@endsection

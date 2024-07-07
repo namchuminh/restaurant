@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ConfigController;
+use App\Http\Controllers\Admin\OrderController;
+
 
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\WebFoodController;
@@ -79,6 +81,11 @@ Route::prefix('admin')->group(function () {
         
         Route::get('/config', [ConfigController::class, 'index'])->name('admin.config.index');
         Route::post('/config/update', [ConfigController::class, 'update'])->name('admin.config.update');
+
+        Route::get('/order', [OrderController::class, 'index'])->name('admin.order.index');
+        Route::get('/order/{code}', [OrderController::class, 'view'])->name('admin.order.view');
+        Route::get('/order/create', [OrderController::class, 'index'])->name('admin.order.create');
+        Route::get('/order/payment/{code}', [OrderController::class, 'payment'])->name('admin.order.payment');
     });
 });
 
