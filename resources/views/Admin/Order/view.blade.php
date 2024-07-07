@@ -41,7 +41,7 @@
                 </span>
                 <span style="display: flex;">
                     <b>Tổng Số Người: </b>
-                    <p style="margin-left: 10px;">{{ $order->people }} người</p>
+                    <p style="margin-left: 10px;">{{ $order->people }} người<i></i></p>
                 </span>
                 <span style="display: flex;">
                     <b>Khách Đặt Hẹn: </b>
@@ -72,20 +72,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                        <!-- <tr>
-                            <td></td>
+                    @foreach ($detailOrders as $key => $detailOrder)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
                             <td class="not_print">
-                                <img style="width: 100px; height: 100px;" src="">
-                            </td>
-                            <td></td>
-                            <td> VND</td>
-                            <td>
-                                 sản phẩm
+                                <img style="width: 100px; height: 100px;" src="{{ asset('storage/'. $detailOrder->food->image) }}">
                             </td>
                             <td>
-                                VND
+                                {{ $detailOrder->food->name }}
                             </td>
-                        </tr> -->
+                            <td>
+                                {{ number_format($detailOrder->food->price) }}đ
+                            </td>
+                            <td>
+                                {{ $detailOrder->quantity }}
+                            </td>
+                            <td>
+                                {{ number_format($detailOrder->quantity * $detailOrder->food->price) }}đ
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="text-right mt-2 d-flex justify-content-end mr-4">
@@ -102,12 +108,18 @@
             </div>
             <div class="card-footer clearfix" style="background: white;">
                 <a class="btn btn-success not_print" href="{{ route('admin.order.index') }}">Quay Lại</a>
-                <button class="btn btn-primary not_print" onclick="window.print()">In Hóa Đơn</button>
-                @if ($order->payment == 0)
-                    <a class="btn btn-warning not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Xác Nhận Thanh Toán</a>
+                @if ($order->amount != 0)
+                    <button class="btn btn-primary not_print" onclick="window.print()">In Hóa Đơn</button>
                 @endif
                 @if ($order->payment == 0)
-                    <a class="btn btn-success not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Thêm Món Ăn</a>
+                    @if (($order->amount == 0) && ($order->status != 0) && ($order->status != 2))
+                        <a class="btn btn-danger not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Hủy Đặt Bàn</a>
+                    @elseif (($order->amount != 0) && ($order->status == 1))
+                        <a class="btn btn-warning not_print" href="{{ route('admin.order.payment', $order->code) }}"  style="color: white;">Xác Nhận Thanh Toán</a>
+                    @endif
+                @endif
+                @if (($order->payment == 0) && ($order->status != 0) && ($order->status != 2))
+                    <a class="btn btn-success not_print" href="{{ route('admin.order.addfood', $order->code) }}"  style="color: white;">Thêm Món Ăn</a>
                 @endif
             </div>
         </div>

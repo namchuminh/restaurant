@@ -86,6 +86,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/order/{code}', [OrderController::class, 'view'])->name('admin.order.view');
         Route::get('/order/create', [OrderController::class, 'index'])->name('admin.order.create');
         Route::get('/order/payment/{code}', [OrderController::class, 'payment'])->name('admin.order.payment');
+        Route::get('/order/addfood/{code}', [OrderController::class, 'addFood'])->name('admin.order.addfood');
+        Route::post('/order/addfood/{code}', [OrderController::class, 'addFoodDetail'])->name('admin.order.addfooddetail');
     });
 });
 
