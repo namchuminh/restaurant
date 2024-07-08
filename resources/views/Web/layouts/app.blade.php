@@ -64,6 +64,7 @@
             visibility: hidden;
         }
     </style>
+    @yield('css')
 
 </head>
 
@@ -365,6 +366,7 @@
             }, 1500); // 5000 milliseconds = 5 seconds
         });
     </script>
+    @yield('script')
 </body>
 
 </html>

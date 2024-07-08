@@ -116,6 +116,7 @@ Route::middleware(['guest.custom'])->group(function () {
 Route::middleware(['auth.custom'])->group(function () {
     Route::get('/dang-xuat', [WebCustomerController::class, 'logout'])->name('web.customer.logout');
     Route::get('/khach-hang', [WebCustomerController::class, 'index'])->name('web.customer.index');
+    Route::post('/khach-hang', [WebCustomerController::class, 'update'])->name('web.customer.update');
 
     Route::get('/yeu-thich', [WebWishListController::class, 'index'])->name('web.wishlist.index');
     Route::get('/yeu-thich/them/{id}', [WebWishListController::class, 'add'])->name('web.wishlist.add');

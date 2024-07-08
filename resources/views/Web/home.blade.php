@@ -383,13 +383,13 @@ Menu Area
                 </div>
             </section>
             <div class="overflow-hidden bg-smoke" id="about-sec">
-                <div class="shape-mockup moving" data-top="10%" data-right="4%"><img src="assets/img/shape/garlic_3.png" alt="shape"></div>
-                <div class="shape-mockup spin d-none d-lg-block" data-bottom="5%" data-right="3%"><img src="assets/img/shape/flower_5.png" alt="shape"></div>
+                <div class="shape-mockup moving" data-top="10%" data-right="4%"><img src="https://html.themeholy.com/restar/demo/assets/img/shape/garlic_3.png" alt="shape"></div>
+                <div class="shape-mockup spin d-none d-lg-block" data-bottom="5%" data-right="3%"><img src="https://html.themeholy.com/restar/demo/assets/img/shape/flower_5.png" alt="shape"></div>
                 <div class="container">
                     <div class="row gx-0">
                         <div class="col-xl-6">
                             <div class="img-box4">
-                                <img src="assets/img/normal/about_2_1.jpg" data-speed="auto" alt="Image">
+                                <img src="https://html.themeholy.com/restar/demo/assets/img/normal/about_2_1.jpg" data-speed="auto" alt="Image">
                             </div>
                         </div>
                         <div class="col-xl-6 text-center text-xl-start space align-self-center">
