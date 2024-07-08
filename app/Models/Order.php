@@ -18,6 +18,8 @@ class Order extends Model
         'user_id',
         'table_id',
         'time_order',
+        'fullname',
+        'phone'
     ];
 
     protected static function boot()

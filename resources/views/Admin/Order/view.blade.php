@@ -37,7 +37,13 @@
                 </span>
                 <span style="display: flex;">
                     <b>Người Đặt Bàn: </b>
-                    <p style="margin-left: 10px;">{{ $order->user->name }}</p>
+                    <p style="margin-left: 10px;">
+                        @if ($order->user_id == 0)
+                            {{ $order->fullname }} ({{ $order->phone }})
+                        @else
+                            {{ $order->user->name }}
+                        @endif
+                    </p>
                 </span>
                 <span style="display: flex;">
                     <b>Tổng Số Người: </b>

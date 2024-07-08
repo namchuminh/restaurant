@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\DetailOrder;
+use App\Models\Table;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -28,17 +31,64 @@ class OrderController extends Controller
         }
     }
 
+    public function create(){
+        $tables = Table::where('status', 0)->orderBy('id', 'DESC')->get();
+        return view('admin.order.create', compact('tables'));
+    }
+
+    public function store(Request $request){
+        $validatedData = $request->validate([
+            'fullname' => 'required|string|max:255',
+            'phone' => 'required|string|max:10|min:10',
+            'people' => 'required|integer|min:1',
+            'table_id' => 'required|exists:tables,id',
+        ], [
+            'fullname.required' => 'Tên là bắt buộc.',
+            'fullname.string' => 'Tên phải là chuỗi ký tự.',
+            'fullname.max' => 'Tên không được vượt quá 255 ký tự.',
+            'phone.required' => 'Số điện thoại là bắt buộc.',
+            'phone.string' => 'Số điện thoại phải là chuỗi ký tự.',
+            'phone.regex' => 'Số điện thoại không đúng định dạng.',
+            'people.required' => 'Số người là bắt buộc.',
+            'people.integer' => 'Số người phải là số nguyên.',
+            'people.min' => 'Số người phải ít nhất là 1.',
+            'table_id.required' => 'Bàn là bắt buộc.',
+            'table_id.exists' => 'Bàn không tồn tại.'
+        ]);
+        
+        $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
+
+        $validatedData['user_id'] = 0;
+        $validatedData['time_order'] = $currentDateTime;
+
+        $order = Order::create($validatedData);
+
+        $table = Table::where('id', $validatedData['table_id'])->firstOrFail();
+        $table->status = 1;
+        $table->save();
+
+        return redirect()->route('admin.order.index')->with('success', 'Tạo hóa đơn thành công!');
+    }
+
     public function payment($code){
         try{
             $order = Order::with('table')->with('user')->where('code', $code)->firstOrFail();
             if($order->amount == 0){
                 $order->status = 0;
                 $order->save();
+
+                $table = Table::where('id', $order->table_id)->firstOrFail();
+                $table->status = 0;
+                $table->save();
                 return redirect()->back()->with('success', 'Hủy đặt bàn công cho hóa đơn!');
             }else{
                 $order->payment = 1;
                 $order->status = 2;
                 $order->save();
+
+                $table = Table::where('id', $order->table_id)->firstOrFail();
+                $table->status = 0;
+                $table->save();
                 return redirect()->back()->with('success', 'Thanh toán thành công cho hóa đơn!');
             }
         } catch (\Exception $e) {

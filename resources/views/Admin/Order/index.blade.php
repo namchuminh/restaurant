@@ -41,45 +41,87 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $key => $order)
-                                    <tr>
-                                        <td>
-                                            {{ $order->code }}
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.customer.block', $order->user->id) }}">{{ $order->user->name }}</a>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.table.edit', $order->table->id) }}">{{ $order->table->name }}</a>
-                                        </td>
-                                        <td>
-                                            {{ $order->time_order }}
-                                        </td>
-                                        <td>
-                                            @php
-                                                echo number_format($order->amount);
-                                            @endphp
-                                            VND
-                                        </td>
-                                        <td>
-                                            @if ($order->payment == 0)
-                                                Chưa Thanh Toán
-                                            @else 
-                                                Đã Thanh Toán
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($order->status == 1)
-                                                Chuẩn Bị Bàn 
-                                            @elseif ($order->status == 0)
-                                                Hủy Đặt Bàn
-                                            @elseif ($order->status == 2)
-                                                Đã Kết Thúc
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary" href="{{ route('admin.order.view', $order->code) }}">XỬ LÝ HÓA ĐƠN</a>
-                                        </td>
-                                    </tr>
+                                    @if ($order->user_id == 0)
+                                        <tr>
+                                            <td>
+                                                {{ $order->code }}
+                                            </td>
+                                            <td>
+                                                <a href="#">{{ $order->fullname }}</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.table.edit', $order->table->id) }}">{{ $order->table->name }}</a>
+                                            </td>
+                                            <td>
+                                                {{ $order->time_order }}
+                                            </td>
+                                            <td>
+                                                @php
+                                                    echo number_format($order->amount);
+                                                @endphp
+                                                VND
+                                            </td>
+                                            <td>
+                                                @if ($order->payment == 0)
+                                                    Chưa Thanh Toán
+                                                @else 
+                                                    Đã Thanh Toán
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($order->status == 1)
+                                                    Chuẩn Bị Bàn 
+                                                @elseif ($order->status == 0)
+                                                    Hủy Đặt Bàn
+                                                @elseif ($order->status == 2)
+                                                    Đã Kết Thúc
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{{ route('admin.order.view', $order->code) }}">XỬ LÝ HÓA ĐƠN</a>
+                                            </td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>
+                                                {{ $order->code }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.customer.block', $order->user->id) }}">{{ $order->user->name }}</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.table.edit', $order->table->id) }}">{{ $order->table->name }}</a>
+                                            </td>
+                                            <td>
+                                                {{ $order->time_order }}
+                                            </td>
+                                            <td>
+                                                @php
+                                                    echo number_format($order->amount);
+                                                @endphp
+                                                VND
+                                            </td>
+                                            <td>
+                                                @if ($order->payment == 0)
+                                                    Chưa Thanh Toán
+                                                @else 
+                                                    Đã Thanh Toán
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($order->status == 1)
+                                                    Chuẩn Bị Bàn 
+                                                @elseif ($order->status == 0)
+                                                    Hủy Đặt Bàn
+                                                @elseif ($order->status == 2)
+                                                    Đã Kết Thúc
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{{ route('admin.order.view', $order->code) }}">XỬ LÝ HÓA ĐƠN</a>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
