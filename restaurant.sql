@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2024 at 07:30 PM
+-- Generation Time: Jul 08, 2024 at 06:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -110,6 +110,14 @@ CREATE TABLE `detail_orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `detail_orders`
+--
+
+INSERT INTO `detail_orders` (`id`, `quantity`, `order_id`, `food_id`, `created_at`, `updated_at`) VALUES
+(8, 2, 7, 1, '2024-07-07 10:07:07', '2024-07-07 10:07:07'),
+(9, 2, 7, 16, '2024-07-07 10:07:11', '2024-07-07 10:07:11');
+
 -- --------------------------------------------------------
 
 --
@@ -204,7 +212,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (95, '2024_06_23_055228_add_status_to_users', 6),
 (96, '2024_06_23_063427_create_contacts_table', 7),
 (97, '2024_07_06_075055_create_wishlists_table', 8),
-(98, '2024_07_06_161800_update_orders_table', 9);
+(98, '2024_07_06_161800_update_orders_table', 9),
+(100, '2024_07_08_034352_update_customer_order', 10);
 
 -- --------------------------------------------------------
 
@@ -248,21 +257,24 @@ CREATE TABLE `orders` (
   `table_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `time_order` datetime DEFAULT NULL
+  `time_order` datetime DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `code`, `people`, `payment`, `status`, `amount`, `user_id`, `table_id`, `created_at`, `updated_at`, `time_order`) VALUES
-(1, '9V415KIJPC', 5, 0, 1, 0, 3, 4, '2024-07-06 09:55:22', '2024-07-06 09:55:22', '2024-07-16 20:00:00'),
-(2, 'Z71TH6939S', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:27', '2024-07-06 10:20:27', '2024-07-16 21:30:00'),
-(3, 'F25QSU279D', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:44', '2024-07-06 10:20:44', '2024-07-24 02:30:00'),
-(4, '0BAPO41R8Y', 6, 0, 1, 0, 3, 4, '2024-07-06 10:21:16', '2024-07-06 10:21:16', '2024-07-31 03:00:00'),
-(5, '7RRTP7B8CG', 3, 0, 1, 0, 3, 4, '2024-07-06 10:22:19', '2024-07-06 10:22:19', '2024-07-29 03:00:00'),
-(6, 'U928IWR1ZY', 6, 0, 1, 0, 3, 4, '2024-07-06 10:23:12', '2024-07-06 10:23:12', '2024-08-18 20:00:00'),
-(7, '7IVDB82A57', 6, 0, 1, 0, 3, 4, '2024-07-06 10:28:12', '2024-07-06 10:28:12', '2024-07-21 02:30:00');
+INSERT INTO `orders` (`id`, `code`, `people`, `payment`, `status`, `amount`, `user_id`, `table_id`, `created_at`, `updated_at`, `time_order`, `fullname`, `phone`) VALUES
+(1, '9V415KIJPC', 5, 0, 1, 0, 3, 4, '2024-07-06 09:55:22', '2024-07-06 09:55:22', '2024-07-16 20:00:00', NULL, NULL),
+(2, 'Z71TH6939S', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:27', '2024-07-06 10:20:27', '2024-07-16 21:30:00', NULL, NULL),
+(3, 'F25QSU279D', 1, 0, 1, 0, 3, 4, '2024-07-06 10:20:44', '2024-07-06 10:20:44', '2024-07-24 02:30:00', NULL, NULL),
+(4, '0BAPO41R8Y', 6, 0, 1, 0, 3, 4, '2024-07-06 10:21:16', '2024-07-06 10:21:16', '2024-07-31 03:00:00', NULL, NULL),
+(5, '7RRTP7B8CG', 3, 0, 1, 0, 3, 4, '2024-07-06 10:22:19', '2024-07-06 10:22:19', '2024-07-29 03:00:00', NULL, NULL),
+(6, 'U928IWR1ZY', 6, 0, 1, 0, 3, 4, '2024-07-06 10:23:12', '2024-07-07 08:18:30', '2024-08-18 20:00:00', NULL, NULL),
+(7, '7IVDB82A57', 6, 1, 2, 282000, 3, 4, '2024-07-06 10:28:12', '2024-07-07 10:07:18', '2024-07-21 02:30:00', NULL, NULL),
+(20, 'A9MCBTBI3P', 6, 0, 1, 0, 0, 4, '2024-07-08 04:44:39', '2024-07-08 04:44:39', '2024-07-08 11:44:39', 'Chu Minh Nam', '0999888999');
 
 -- --------------------------------------------------------
 
@@ -316,7 +328,7 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `name`, `address`, `quantity`, `status`, `created_at`, `updated_at`) VALUES
-(4, 'Bàn Số 01', 'Tầng 1, Phía Cửa Chính', 6, 0, '2024-06-22 22:27:16', '2024-06-23 01:13:44');
+(4, 'Bàn Số 01', 'Tầng 1, Phía Cửa Chính', 6, 1, '2024-06-22 22:27:16', '2024-07-08 04:44:39');
 
 -- --------------------------------------------------------
 
@@ -343,6 +355,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `phone`, `role`, `status`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(0, 'Khách Trực Tiếp', 'khachtructiep@gmail.com', NULL, '0555666888', 1, 1, '$2y$10$tkOwHK6UxxCCs19y5jX9x./Q7rYfva08JnAttEl7p/zZM/7jnI8AC', NULL, '2024-07-08 03:49:52', '2024-07-08 03:49:52'),
 (1, 'Admin', 'admin@gmail.com', NULL, '0999888999', 1, 1, '$2y$10$tkOwHK6UxxCCs19y5jX9x./Q7rYfva08JnAttEl7p/zZM/7jnI8AC', NULL, '2024-06-14 11:06:02', '2024-06-23 01:00:58'),
 (2, 'Nguyen Van An', 'nguyenvana@gmail.com', NULL, '0999888999', 0, 1, '$2y$10$tkOwHK6UxxCCs19y5jX9x./Q7rYfva08JnAttEl7p/zZM/7jnI8AC', NULL, '2024-06-14 11:07:44', '2024-06-22 23:31:01'),
 (3, 'Nguyễn Văn Bình', 'nguyenvanb@gmail.com', NULL, '0666888999', 0, 1, '$2y$10$/PrRVryP2FjYVveVHQuEFO6Mg8Zt.m8iSmfpKy4uoqLH2d2dQeNum', NULL, '2024-07-05 00:40:06', '2024-07-05 00:40:06'),
@@ -496,7 +509,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `detail_orders`
 --
 ALTER TABLE `detail_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -514,7 +527,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -526,7 +539,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -544,7 +557,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wishlists`
