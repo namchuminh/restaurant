@@ -89,6 +89,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/order/payment/{code}', [OrderController::class, 'payment'])->name('admin.order.payment');
         Route::get('/order/addfood/{code}', [OrderController::class, 'addFood'])->name('admin.order.addfood');
         Route::post('/order/addfood/{code}', [OrderController::class, 'addFoodDetail'])->name('admin.order.addfooddetail');
+
+        Route::get('/monthly-revenue', [DashboardController::class, 'getMonthlyRevenue'])->name('admin.dashboard.revenue');
+        Route::get('/monthly-order-count', [DashboardController::class, 'getMonthlyOrderCount'])->name('admin.dashboard.order');
     });
 });
 
