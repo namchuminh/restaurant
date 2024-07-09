@@ -749,8 +749,8 @@ Blog Area
                                                     <a href="blog.html">{{ $item->created_at }}</a>
                                                     <a href="blog.html">{{ $item->category->name }}</a>
                                                 </div>
-                                                <h3 class="box-title"><a href="blog-details.html">{{ $item->name }}</a></h3>
-                                                <a href="blog-details.html" class="th-btn btn-sm style-border">Đọc Thêm</a>
+                                                <h3 class="box-title"><a href="{{ route('web.news.view', $item->slug) }}">{{ $item->name }}</a></h3>
+                                                <a href="{{ route('web.news.view', $item->slug) }}" class="th-btn btn-sm style-border">Đọc Thêm</a>
                                             </div>
                                         </div>
                                     </div>
