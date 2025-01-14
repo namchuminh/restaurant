@@ -4,10 +4,10 @@
 <div class="breadcumb-wrapper background-image" style="background-image: url(https://html.themeholy.com/restar/demo/assets/img/bg/breadcumb-bg.jpg);">
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Danh Sách Tin Tức</h1>
+            <h1 class="breadcumb-title">DANH SÁCH TIN TỨC</h1>
             <ul class="breadcumb-menu">
-                <li><a href="{{ route('web.home') }}">Trang Chủ</a></li>
-                <li>Tin Tức</li>
+                <li><a href="{{ route('web.home') }}">TRANG CHỦ</a></li>
+                <li>TIN TỨC</li>
             </ul>
         </div>
     </div>

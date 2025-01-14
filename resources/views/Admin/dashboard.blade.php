@@ -1,11 +1,11 @@
 @extends('Admin.layouts.app')
-@section('title', 'Trang Quản Trị')
+@section('title', 'Trang Quản Trị Viên')
 @section('content')
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Dashboard</h1>
+                <h1 class="m-0 text-dark">BẢNG ĐIỀU KHIỂN</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-success">
+                <div class="small-box"> <!-- bg-success -->
                     <div class="inner">
                         <h3>{{ number_format($totalRevenueToday) }} VND</h3>
                         <p>Doanh Thu Hôm Nay</p>
@@ -35,7 +35,7 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-info">
+                <div class="small-box"> <!-- bg-info -->
                     <div class="inner">
                         <h3>{{ $totalOrdersToday }}</h3>
                         <p>Hóa Đơn Hôm Nay</p>
@@ -48,7 +48,7 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-warning">
+                <div class="small-box"> <!-- bg-warning -->
                     <div class="inner">
                         <h3>{{ $totalCustomersToday }}</h3>
                         <p>Khách Hàng Hôm Nay</p>
@@ -61,7 +61,7 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-danger">
+                <div class="small-box"> <!-- bg-danger -->
                     <div class="inner">
                         <h3>{{ $foodSum }}</h3>
                         <p>Món Ăn Trong Menu</p>
@@ -116,6 +116,8 @@
             </div>
             <!-- /.col -->
         </div>
+
+
         <div class="row">
             <div class="col-md-4 col-sm-6 col-12">
                 <div class="info-box">
@@ -124,9 +126,9 @@
                         style="color: black;">
                         <span class="info-box-text">Doanh Thu Tuần Này</span>
                         <span class="info-box-number">{{ number_format($totalRevenueLast7Days) }} VND</span>
-                    </a>
-                    <!-- /.info-box-content -->
-                </div>
+                    </a> 
+                    <!-- /.info-box-content --> 
+                </div> 
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
@@ -159,6 +161,8 @@
             </div>
             <!-- /.col -->
         </div>
+
+
 
         <div class="row">
             <section class="col-lg-6 connectedSortable ui-sortable">

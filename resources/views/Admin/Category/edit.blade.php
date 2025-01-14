@@ -1,18 +1,17 @@
 @extends('Admin.layouts.app')
-@section('title', 'Cập nhật chuyên mục')
+@section('title', 'Cập nhật món ăn')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản Lý Chuyên Mục</h1>
+                <h1>SỬA MÓN ĂN</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Trang Chủ</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Quản Lý Chuyên
-                            Mục</a></li>
-                    <li class="breadcrumb-item active">Cập Nhật Chuyên Mục</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Quản Lý Món Ăn</a></li>
+                    <li class="breadcrumb-item active">Cập Nhật Món Ăn</li>
                 </ol>
             </div>
         </div>
@@ -31,7 +30,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ten">Tên Chuyên Mục</label>
+                                <label for="ten">Tên Món Ăn</label>
                                 <input type="text" class="form-control tenchinh" id="ten" placeholder="Tên chuyên mục"
                                     name="name" value="{{ $category->name }}">
                             </div>
@@ -43,7 +42,7 @@
                                     <span id="taoduongdan" class="float-right" style="cursor: pointer;">Tạo tự
                                         động?</span>
                                 </div>
-                                <input type="text" class="form-control" id="duongdan" placeholder="Đường dẫn chuyên mục"
+                                <input type="text" class="form-control" id="duongdan" placeholder="Đường dẫn món ăn"
                                     name="slug" value="{{ $category->slug }}">
                             </div>
                         </div>
@@ -55,7 +54,7 @@
                         </div>
                     </div>
                     <a class="btn btn-success" href="{{ route('admin.category.index') }}">Quay Lại</a>
-                    <button class="btn btn-primary">Cập Nhật Chuyên Mục</button>
+                    <button class="btn btn-primary">Cập Nhật Món Ăn</button>
                 </form>
             </div>
         </div>

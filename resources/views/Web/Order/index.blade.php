@@ -22,10 +22,64 @@
             </div>
         </div>
 
+        <div class="reservation-form-wrap mb-5">
+            <form action="{{ route('web.order.filterTable') }}" method="POST" class="reservation-form input-white" style="max-width: 100%;">
+                @csrf 
+                <h3 class="form-title">Tra Cứu Bàn Trống</h3>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <input type="number" class="form-control" name="people" id="people" placeholder="Tổng số người" min="1" value="{{ old('people') }}">
+                        <i class="fal fa-user-group"></i>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <input type="text" class="date-pick form-control" name="date" id="date-pick" placeholder="Ngày" value="{{ old('date') }}">
+                        <i class="fal fa-calendar"></i>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <input type="text" class="time-pick form-control" name="time" id="time-pick" placeholder="Giờ" value="{{ old('time') }}">
+                        <i class="fal fa-clock"></i>
+                    </div>
+                </div>
+                <button class="th-btn w-100">Tra Cứu</button>
+                <p class="form-messages mb-0 mt-3"></p>
+            </form>
+        </div>
+        <div class="reservation-form-wrap mt-5 mb-5">
+            <div class="container">
+                <div class="row">
+                    @if (!isset($tablesFilter))
+
+                    @elseif (count($tablesFilter) == 0)
+                        <div class="col-12">
+                            <div class="text-center text-warning">
+                                Không có bàn nào phù hợp với yêu cầu của bạn.
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($tablesFilter as $table)
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Bàn số {{ $table->id }}</h5>
+                                        <p class="card-text">
+                                            Sức chứa: {{ $table->quantity }} người
+                                        </p>
+                                        <p class="card-text text-muted">
+                                            {{ $table->address  }}  
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
+
         <div class="reservation-form-wrap" data-bg-src="https://html.themeholy.com/restar/demo/assets/img/bg/reservation_bg_2.jpg">
             <form action="{{ route('web.order.order') }}" method="POST" class="reservation-form input-white">
                 @csrf 
-                <h3 class="form-title">Thông Tin Đặt Bàn</h3>
+                <h3 class="form-title">Đặt Bàn</h3>
                 <div class="row">
                     <div class="form-group col-12">
                         <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" value="{{ auth()->user()->name }}">

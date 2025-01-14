@@ -121,6 +121,26 @@ class OrderController extends Controller
             'quantity.min' => 'Số lượng phải lớn hơn hoặc bằng 1.'
         ]);
 
+        // Lấy dữ liệu từ request
+        $foodId = $request->input('food_id');
+        $quantityToDeduct = $request->input('quantity');
+
+        // Tìm món ăn
+        $food = Food::find($foodId);
+
+        if($food->quantity <= 0){
+            return redirect()->back()->with('error', 'Số lượng không đủ để thực hiện!');
+        }
+
+        // Kiểm tra nếu số lượng trong kho đủ để trừ
+        if ($food->quantity >= $quantityToDeduct) {
+            // Trừ số lượng
+            $food->quantity -= $quantityToDeduct;
+            $food->save();
+        } else {
+            return redirect()->back()->with('error', 'Số lượng thêm lớn hơn số lượng trong kho!');
+        }
+
         // Kiểm tra nếu món ăn đã tồn tại trong hóa đơn
         $detailOrder = DetailOrder::where('order_id', $order->id)
             ->where('food_id', $request->input('food_id'))

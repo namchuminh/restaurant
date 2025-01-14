@@ -18,6 +18,20 @@ class WebOrderController extends Controller
         return view('web.order.index', compact('tables'));
     }
 
+    public function getFilterTable(){
+        $tables = Table::orderBy('id', 'DESC')->get();
+        return view('web.order.index', compact('tables'));
+    }
+
+    public function filterTable(){
+        //Lọc ra các bàn có thể đặt theo điện kiện post date và post time ghép lại không có tỏng bảng order theo cột time_order, điều kiện post people <= quantity bảng table
+        $tablesFilter = Table::whereDoesntHave('orders', function ($query) {
+            $query->where('time_order', Carbon::createFromFormat('d-m-y H:i', request()->date . ' ' . request()->time)->format('Y-m-d H:i:s'));
+        })->where('quantity', '>=', request()->people)->get();
+        $tables = Table::orderBy('id', 'DESC')->get();
+        return view('web.order.index', compact('tablesFilter', 'tables'));
+    }
+
     public function order(Request $request){
         $validator = Validator::make($request->all(), [
             'people' => 'required|integer|min:1',
@@ -60,5 +74,40 @@ class WebOrderController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Đặt bàn thành công!');
+    }
+
+    public function cancel($id){
+        //Lấy theo id và chuyển status order thành 0
+        $order = Order::find($id);
+        $order->status = 0;
+        $order->save();
+        return redirect()->back()->with('success', 'Hủy đặt bàn thành công!');
+    }
+
+    public function update($id){
+        //Lấy post tableId gán vào biến tableId
+        $tableId = request()->tableId;
+
+        //Lấy theo id của orders
+        $order = Order::find($id);
+
+        if($tableId == $order->table_id){
+            return redirect()->back()->with('success', 'Cập nhật đặt bàn thành công!');
+        }
+
+        // Kiểm tra xem bàn đã được đặt trong thời gian đó chưa
+        $existingOrder = Order::where('table_id', request()->tableId)
+            ->where('time_order', $order->time_order)
+            ->exists();
+
+        if ($existingOrder) {
+            return redirect()->back()->with('success', 'Bàn đã được khách hàng đặt trước đó!');
+        }
+
+        //Cập nhật lại table_id của order
+        $order->table_id = $tableId;
+        $order->save();
+        
+        return redirect()->back()->with('success', 'Cập nhật đặt bàn thành công!');
     }
 }

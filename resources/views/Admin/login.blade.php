@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Đăng Nhập Hệ Thống</title>
+  <title>Đăng Nhập Vào Hệ Thống Nhà Hàng</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,7 +27,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Đăng nhập để thực hiện chức năng</p>
+      <p class="login-box-msg">Mời bạn đăng nhập</p>
       <form method="post" action="{{ route('admin.login.submit') }}">
         @csrf
         <div class="input-group mb-3">

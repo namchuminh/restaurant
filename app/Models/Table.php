@@ -15,4 +15,9 @@ class Table extends Model
         'quantity',
         'status'
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

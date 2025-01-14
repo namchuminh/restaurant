@@ -29,7 +29,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Hình Ảnh</th>
                                     <th style="width: 200px;">Tiêu Đề</th>
                                     <th>Chuyên Mục</th>

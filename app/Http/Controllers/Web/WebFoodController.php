@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Food;
 use App\Models\Category;
 use App\Models\Table;
+use App\Models\Review;
 
 class WebFoodController extends Controller
 {
@@ -25,7 +26,14 @@ class WebFoodController extends Controller
                              ->inRandomOrder()
                              ->limit(8)
                              ->get();
-            return view('Web/Food/view', compact('food', 'relatedFoods'));
+            
+            //Lấy ra 4 đánh giá mới nhất của món ăn theo food->id thông qua model Review
+            $reviews = Review::with('user')->where('food_id', $food->id)->orderBy('id', 'DESC')->limit(4)->get();
+
+            //Lấy ra số sao của món ăn hiện tại theo food->id thông qua model Review
+            $rating = Review::where('food_id', $food->id)->avg('rating');
+
+            return view('Web/Food/view', compact('food', 'relatedFoods', 'reviews', 'rating'));
         } catch (\Exception $e) {
             abort(404);
         }

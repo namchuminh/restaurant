@@ -138,7 +138,7 @@
                         <div class="header-links">
                             <div class="shape1"></div>
                             <ul>
-                                <li><i class="fas fa-clock"></i> <b>Thứ 2 tới Thứ 7:</b> 9:00 sáng - 22:00 tối</li>
+                                <li><i class="fas fa-clock"></i> <b>Thứ 2 tới Thứ 7:</b> 10:00 sáng - 22:00 tối</li>
                             </ul>
                         </div>
                     </div>
@@ -220,8 +220,8 @@ Hero Area
                             <div class="title-ani">
                                 <span class="hero-subtitle text-center">Ẩm thực & Khám phá!</span>
                             </div>
-                            <h1 class="hero-title2">Đơn Giản</h1>
-                            <h2 class="hero-title3">Đa Sắc</h2>
+                            <h1 class="hero-title2">ĐƠN GIẢN</h1>
+                            <h2 class="hero-title3">ĐA SẮC</h2>
                             <div class="title-ani2">
                                 <a href="{{ route('web.order.index') }}" class="th-btn style3">ĐẶT BÀN</a>
                             </div>
@@ -383,6 +383,7 @@ Menu Area
                 </div>
             </section>
             <div class="overflow-hidden bg-smoke" id="about-sec">
+
                 <div class="shape-mockup moving" data-top="10%" data-right="4%"><img src="https://html.themeholy.com/restar/demo/assets/img/shape/garlic_3.png" alt="shape"></div>
                 <div class="shape-mockup spin d-none d-lg-block" data-bottom="5%" data-right="3%"><img src="https://html.themeholy.com/restar/demo/assets/img/shape/flower_5.png" alt="shape"></div>
                 <div class="container">
@@ -395,16 +396,16 @@ Menu Area
                         <div class="col-xl-6 text-center text-xl-start space align-self-center">
                             <div class="about-space1">
                                 <div class="title-area pe-xl-4 mb-35">
-                                    <span class="sub-title2">About Us Restaurant</span>
-                                    <h2 class="sec-title">The Artistry Behind the Menu</h2>
+                                    <span class="sub-title2">Giới Thiệu Về Chúng Tôi</span>
+                                    <h2 class="sec-title">Nhà hàng phục vụ tận tình</h2>
                                     <div class="text-ani">
-                                        <p class="sec-text">From crispy and golden fries to mouthwatering burgers and wraps, our menu offers a variety of fast-food favorites. Each item is crafted with quality ingredients to ensure a tasty experience with every order.</p>
-                                        <p class="sec-text">Elevate your dining experience with our extensive selection of fine wines and expertly crafted cocktails.</p>
+                                        <p class="sec-text">Đội ngũ đầu bếp có kinh nghiệm trong nhiều năm làm nhà hàng</p>
+                                        <p class="sec-text">Nhân viên trẻ trung năng động phục vụ tận tình</p>
                                     </div>
 
                                 </div>
                                 <div class="text-ani">
-                                    <a href="about.html" class="th-btn style-border smoke-bg">More About Us</a>
+                                    <a href="about.html" class="th-btn style-border smoke-bg">Tìm hiểu thêm về chúng tôi</a>
                                 </div>
                             </div>
                         </div>
@@ -481,8 +482,8 @@ Menu Area
                         <div class="col-xl-9">
                             <div class="slider-area menu-list-slider space" data-bg-src="assets/img/bg/square_pattern2.jpg">
                                 <div class="title-area text-center">
-                                    <span class="sub-title2">Menu Card</span>
-                                    <h2 class="sec-title title-ani text-white">Our Restaurant Foods Menu</h2>
+                                    <span class="sub-title2">Menu nhà hàng</span>
+                                    <h2 class="sec-title title-ani text-white">Thực đơn món ăn nhà hàng của chúng tôi</h2>
                                 </div>
                                 <div class="swiper th-slider" id="menuSlider3" data-slider-options='{}'>
                                     <div class="swiper-wrapper">
@@ -703,16 +704,17 @@ Schedule Area
             <div class="overflow-hidden space">
                 <div class="container">
                     <div class="schedule-sec2" data-bg-src="https://html.themeholy.com/restar/demo/assets/img/bg/square_pattern3.png">
-                        <h2 class="sec-title title-ani2"><span>MỞ</span> <span>CỬA</span></h2>
+                        <h2 class="sec-title title-ani2"><span> MỞ </span> <span> CỬA </span></h2>
                         <div class="schedule-img">
                             <img class="flipY" src="https://html.themeholy.com/restar/demo/assets/img/normal/schedule_2.png" alt="Chef">
+                             
                         </div>
                         <div class="schedule-box">
                             <div class="schedule-list-wrap">
                                 <div class="schedule-list flipX">
                                     <h3 class="box-title">Monday to Tuesday</h3>
                                     <h4 class="box-time">10:00 AM</h4>
-                                    <h4 class="box-time">20:00 PM</h4>
+                                    <h4 class="box-time">22:00 PM</h4>
                                     <a href="tel:{{ $config->phone }}" class="th-btn style-border border-two">{{ $config->phone }}</a>
                                 </div>
                                 <div class="schedule-list flipX">

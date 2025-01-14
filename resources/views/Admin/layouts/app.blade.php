@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="{{ asset('dist/img/AdminLTELogo.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('dist/img/avatar.png') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Ionicons -->
@@ -51,9 +51,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+                <img src="{{ asset('dist/img/avatar5.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Quản Lý Cửa Hàng</span>
+                <span class="brand-text font-weight-light">Quản Lý Nhà Hàng</span>
             </a>
 
             <!-- Sidebar -->
@@ -120,7 +120,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-header">QUẢN LÝ CỬA HÀNG</li>
+                        <li class="nav-header">QUẢN LÝ NHÀ HÀNG</li>
                         <li class="nav-item has-treeview">
                             <a href="{{ route('admin.news.index') }}" class="nav-link">
                                 <i class="nav-icon fa-solid fa-newspaper"></i>
@@ -244,7 +244,7 @@
         </div>
 
         <footer class="main-footer">
-            <strong>&copy; 2023-2024 - Trang dành cho <a href="#">Quản trị viên</a>.</strong>
+            <strong>&copy; 2024-2025 - Trang dành cho <a href="#">Quản trị viên</a>.</strong>
             <div class="float-right d-none d-sm-inline-block">
                 <b>Phiên bản</b> 1.0.0
             </div>

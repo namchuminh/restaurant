@@ -1,16 +1,16 @@
 @extends('Admin.layouts.app')
-@section('title', 'Danh sách chuyên mục món')
+@section('title', 'Danh Sách Món Ăn')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản Lý Chuyên Mục</h1>
+                <h1>DANH SÁCH MÓN ĂN</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Trang Chủ</a></li>
-                    <li class="breadcrumb-item active">Quản Lý Chuyên Mục</li>
+                    <li class="breadcrumb-item active">Quản Lý Món Ăn</li>
                 </ol>
             </div>
         </div>
@@ -29,9 +29,9 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Hình Ảnh</th>
-                                    <th>Tên Chuyên Mục</th>
+                                    <th>Tên Món Ăn</th>
                                     <th>Đường Dẫn</th>
                                     <th>Hành Động</th>
                                 </tr>

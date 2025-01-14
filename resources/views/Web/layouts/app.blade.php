@@ -139,7 +139,7 @@
                         <div class="header-links">
                             <div class="shape1"></div>
                             <ul>
-                                <li><i class="fas fa-clock"></i> <b>Thứ 2 tới Thứ 7:</b> 9:00 sáng - 22:00 tối</li>
+                                <li><i class="fas fa-clock"></i> <b>Thứ 2 tới Thứ 7:</b> 10:00 sáng - 22:00 tối</li>
                             </ul>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Table;
 
 class WebCustomerController extends Controller
 {
@@ -25,8 +26,10 @@ class WebCustomerController extends Controller
         $lastPage = $orders->lastPage();
         $total = $orders->total();
         $perPage = $orders->perPage();
+
+        $tables = Table::orderBy('id', 'DESC')->get();
     
-        return view('web.customer.index', compact('orders', 'currentPage', 'lastPage', 'total', 'perPage'));
+        return view('web.customer.index', compact('orders', 'currentPage', 'lastPage', 'total', 'perPage', 'tables'));
     }
 
     public function update(Request $request){

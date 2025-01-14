@@ -151,4 +151,4 @@ class CategoryController extends Controller
             return redirect()->route('admin.category.index')->with('error', 'Không tìm thấy chuyên mục!');
         }
     }
-}
+} 
