@@ -24,17 +24,26 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form class="form-inline" method="GET">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control w-100" id="search" name="search" 
+                                    placeholder="Tìm kiếm bàn ăn" value="{{ request()->search }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Tên Bàn Ăn</th>
                                     <th>Vị Trí Bàn Ăn</th>
                                     <th>Số Người</th>
-                                    <th>Trạng Thái</th>
-                                    <th>Đổi Trạng Thái</th>
                                     <th>Hành Động</th>
                                 </tr>
                             </thead>
@@ -52,18 +61,6 @@
                                         </td>
                                         <td>
                                             {{ $table->quantity }} người
-                                        </td>
-                                        <td>
-                                            {{ $table->status == 0 ? "Hiện Trống" : "Sử Dụng"}}
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-success" href="{{ route('admin.table.status', ['id' => $table->id]) }}">
-                                                @if ($table->status == 0)
-                                                    <i class='fa-solid fa-users'></i> Đang Sử Dụng
-                                                @else
-                                                    <i class='fa-solid fa-user-xmark'></i> Đang Hiện Trống
-                                                @endif
-                                            </a>
                                         </td>
                                         <td class="d-flex">
                                             <a href="{{ route('admin.table.edit', $table->id) }}" class="btn btn-primary mr-2">

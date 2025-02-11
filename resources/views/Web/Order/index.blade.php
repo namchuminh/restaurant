@@ -60,7 +60,7 @@
                             <div class="col-md-4 col-sm-6 mb-4">
                                 <div class="card shadow-sm">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">Bàn số {{ $table->id }}</h5>
+                                        <h5 class="card-title">{{ $table->name }}</h5>
                                         <p class="card-text">
                                             Sức chứa: {{ $table->quantity }} người
                                         </p>

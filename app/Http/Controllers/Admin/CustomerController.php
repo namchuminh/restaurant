@@ -9,10 +9,23 @@ use App\Models\User;
 
 class CustomerController extends Controller
 {
-    public function index(){
-        $users = User::where('role', 0)->orderBy('created_at', 'desc')->paginate(10);
-        $totalPages = $users->lastPage(); // Lấy tổng số trang
-        return view('Admin/Customer/index', compact('users', 'totalPages'));
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+
+        $users = User::where('role', 0)
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('email', 'LIKE', "%{$search}%");
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        $totalPages = $users->lastPage();
+
+        return view('Admin/Customer/index', compact('users', 'totalPages', 'search'));
     }
 
     public function show($id){

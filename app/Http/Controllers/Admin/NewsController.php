@@ -10,14 +10,22 @@ use App\Models\News;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $news = News::with('category')
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
-        $totalPages = $news->lastPage(); // Lấy tổng số trang
-        return view('Admin/News/index', compact('news', 'totalPages'));
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'LIKE', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        $totalPages = $news->lastPage();
+
+        return view('Admin/News/index', compact('news', 'totalPages', 'search'));
     }
+
 
     public function create()
     {

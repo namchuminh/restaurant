@@ -54,12 +54,6 @@
                         </div>
                     </div>
                     <p class="text">{{ $food->description }}</p>
-                    <div class="mt-2 link-inherit">
-                        <p>
-                            <strong class="text-title me-3">Số lượng còn:</strong>
-                            <span class="stock in-stock"><i class="far fa-check-square me-2 ms-1"></i>{{ $food->quantity }}</span>
-                        </p>
-                    </div>
                     <div class="actions">
                         <a href="{{ route('web.wishlist.add', $food->id) }}" class="th-btn"><i class="far fa-heart"></i> YÊU THÍCH</a>
                     </div>
@@ -169,12 +163,6 @@ Related Product
                             <div class="th-product product-grid">
                                 <div class="product-img transparent-img">
                                     <img style="height: 230px;" src="{{ asset('storage/' . $food->image) }}" alt="Product Image">
-                                    <span class="product-tag">
-                                        @php
-                                            $discountPercentage = (($food->sale - $food->price) / $food->sale) * 100;
-                                            echo $discountPercentage."%";
-                                        @endphp
-                                    </span>
                                     <div class="actions">
                                         <a href="{{ route('web.food.view', $food->slug) }}" class="icon-btn"><i class="far fa-eye"></i></a>
                                         <a href="{{ route('web.wishlist.add', $food->id) }}" class="icon-btn"><i class="far fa-heart"></i></a>

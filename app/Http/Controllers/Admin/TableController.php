@@ -9,11 +9,19 @@ use App\Models\Table;
 class TableController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $tables = Table::orderBy('created_at', 'desc')->paginate(10);
-        $totalPages = $tables->lastPage(); // Lấy tổng số trang
-        return view('Admin/Table.index', compact('tables', 'totalPages'));
+        $search = $request->input('search');
+
+        $tables = Table::when($search, function ($query, $search) {
+                return $query->where('name', 'LIKE', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        $totalPages = $tables->lastPage();
+
+        return view('Admin/Table/index', compact('tables', 'totalPages', 'search'));
     }
 
     public function create()

@@ -24,6 +24,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form class="form-inline" method="GET" action="{{ route('admin.food.index') }}">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control w-100" id="search" name="search" 
+                                    placeholder="Tìm kiếm món ăn" value="{{ request()->search }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
@@ -33,8 +44,6 @@
                                     <th>Hình Ảnh</th>
                                     <th style="width: 150px;">Tên Món Ăn</th>
                                     <th>Loại Món Ăn</th>
-                                    <th>Số Lượng</th>
-                                    <th>Giá Gốc</th>
                                     <th>Giá Bán</th>
                                     <th style="width: 120px;">Đường Dẫn</th>
                                     <th>Hành Động</th>
@@ -57,12 +66,6 @@
                                                 target="_blank">
                                                 {{ $food->category->name }}
                                             </a>
-                                        </td>
-                                        <td>
-                                            {{ $food->quantity }} sản phẩm
-                                        </td>
-                                        <td>
-                                            {{ number_format($food->sale) }}đ
                                         </td>
                                         <td>
                                             {{ number_format($food->price) }}đ

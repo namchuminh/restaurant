@@ -13,12 +13,28 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $orders = Order::with('table')->with('user')
+    public function index(Request $request)
+    {
+        $timeOrder = $request->input('time_order');
+        $payment = $request->input('payment');
+        $status = $request->input('status');
+
+        $orders = Order::with('table', 'user')
+            ->when($timeOrder, function ($query, $timeOrder) {
+                return $query->whereDate('time_order', $timeOrder);
+            })
+            ->when($payment !== null, function ($query) use ($payment) {
+                return $query->where('payment', $payment);
+            })
+            ->when($status !== null, function ($query) use ($status) {
+                return $query->where('status', $status);
+            })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-        $totalPages = $orders->lastPage(); // Lấy tổng số trang
-        return view('admin.order.index', compact('orders', 'totalPages'));
+
+        $totalPages = $orders->lastPage();
+
+        return view('admin.order.index', compact('orders', 'totalPages', 'timeOrder', 'payment', 'status'));
     }
 
     public function view($code){
@@ -171,5 +187,24 @@ class OrderController extends Controller
 
         // Chuyển hướng với thông báo thành công
         return redirect()->back()->with('success', 'Thêm món ăn vào hóa đơn thành công.');
+    }
+
+    public function deletefood($id){
+        $detailOrder = DetailOrder::find($id);
+        $order = Order::find($detailOrder->order_id);
+
+        $detailOrder->delete();
+
+        //Cập nhật lại amount cho order
+        $detailOrders = DetailOrder::with('food')->where('order_id', $order->id)->get();
+        $amount = 0;
+        foreach($detailOrders as $key => $detailOrder){
+            $amount += $detailOrder->food->price * $detailOrder->quantity;
+        }
+
+        $order->amount = $amount;
+        $order->save();
+
+        return redirect()->back()->with('success', 'Xóa món ăn khỏi hóa đơn thành công.');
     }
 }

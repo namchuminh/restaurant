@@ -28,7 +28,7 @@
                     <table class="table table-bordered custom-table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>STT</th>
                                 <th>Mã Đặt Bàn</th>
                                 <th>Đặt Bàn</th>
                                 <th>Ngày Đặt</th>
@@ -75,7 +75,7 @@
                                     <td>
                                         <i>
                                             @if($order->status == 1)
-                                                Đang Chờ Xử Lý
+                                                Đặt Bàn Thành Công
                                             @elseif($order->status == 2)
                                                 Đã Kết Thúc
                                             @else

@@ -24,6 +24,32 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form class="form-inline" method="GET" action="{{ route('admin.order.index') }}">
+                            <div class="col-md-2">
+                                <input type="date" class="form-control w-100" id="search" name="time_order" 
+                                    value="{{ request()->time_order }}">
+                            </div>
+                            <div class="col-md-2">
+                                <select name="payment" class="form-control w-100">
+                                    <option value="">-- Chọn Thanh Toán --</option>
+                                    <option value="0" {{ request()->payment === '0' ? 'selected' : '' }}>Chưa Thanh Toán</option>
+                                    <option value="1" {{ request()->payment === '1' ? 'selected' : '' }}>Đã Thanh Toán</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select name="status" class="form-control w-100">
+                                    <option value="">-- Chọn Trạng Thái --</option>
+                                    <option value="1" {{ request()->status === '1' ? 'selected' : '' }}>Chuẩn Bị Bàn</option>
+                                    <option value="0" {{ request()->status === '0' ? 'selected' : '' }}>Hủy Đặt Bàn</option>
+                                    <option value="2" {{ request()->status === '2' ? 'selected' : '' }}>Đã Kết Thúc</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">

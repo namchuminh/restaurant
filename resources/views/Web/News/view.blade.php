@@ -100,14 +100,14 @@
                         </div>
                     </div>
                     <div class="widget widget_tag_cloud  ">
-                        <h3 class="widget_title">Danh Sách Thẻ</h3>
+                        <!-- <h3 class="widget_title">Danh Sách Thẻ</h3> -->
                         <div class="tagcloud">
-                            <a href="#">Đồ Ăn Nhanh</a>
+                            <!-- <a href="#">Đồ Ăn Nhanh</a>
                             <a href="#">Món Nhậu</a>
                             <a href="#">Nhà Hàng</a>
                             <a href="#">Cơm Bình Dân</a>
                             <a href="#">Món Lẩu</a>
-                            <a href="#">Gà Rán</a>
+                            <a href="#">Gà Rán</a> -->
                         </div>
                     </div>
                 </aside>

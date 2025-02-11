@@ -63,16 +63,14 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="sl">Số Lượng</label>
-                                <input type="number" class="form-control" id="sl" placeholder="Số lượng"
-                                    name="quantity">
+                                <input type="hidden" class="form-control" id="sl" placeholder="Số lượng"
+                                    name="quantity" value="0">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="sl">Giá Gốc</label>
-                                <input type="number" class="form-control" id="sl" placeholder="Giá gốc"
-                                    name="sale">
+                                <input type="hidden" class="form-control" id="sl" placeholder="Giá gốc"
+                                    name="sale" value="0">
                             </div>
                         </div>
                         <div class="col-md-12">

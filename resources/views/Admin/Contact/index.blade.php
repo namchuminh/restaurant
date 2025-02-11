@@ -24,12 +24,23 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form class="form-inline" method="GET">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control w-100" id="search" name="search" 
+                                    placeholder="Tên khách hàng, email" value="{{ request()->search }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Tên Khách Hàng</th>
                                     <th>Email</th>
                                     <th>Số Điện Thoại</th>

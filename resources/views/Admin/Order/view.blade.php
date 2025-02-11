@@ -69,12 +69,15 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th>STT</th>
                     <th class="not_print">Hình Ảnh</th>
                     <th>Tên Món Ăn</th>
                     <th>Giá Bán</th>
                     <th>Số Lượng</th>
                     <th>Đơn Giá</th>
+                    @if ($order->payment == 0)
+                        <th>Hành Động</th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -95,7 +98,12 @@
                             </td>
                             <td>
                                 {{ number_format($detailOrder->quantity * $detailOrder->food->price) }}đ
-                            </td>
+                            </td> 
+                            @if ($order->payment == 0)
+                                <td>
+                                    <a class="btn btn-danger" href="{{ route('admin.order.deletefood', [$detailOrder->id]) }}"><i class="fa-solid fa-trash"></i> Xóa</a>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

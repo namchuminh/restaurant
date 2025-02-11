@@ -35,7 +35,23 @@ class WebOrderController extends Controller
     public function order(Request $request){
         $validator = Validator::make($request->all(), [
             'people' => 'required|integer|min:1',
-            'date' => 'required|date_format:d-m-y',
+            'date' => [
+                'required',
+                'date_format:d-m-y', // Giữ nguyên định dạng d-m-y như đầu vào
+                function ($attribute, $value, $fail) {
+                    $date = \DateTime::createFromFormat('d-m-y', $value);
+                    if (!$date) {
+                        return $fail('Ngày không hợp lệ.');
+                    }
+        
+                    $today = new \DateTime();
+                    $today->setTime(0, 0, 0); // Đưa về 00:00:00 để so sánh chính xác
+        
+                    if ($date < $today) {
+                        return $fail('Ngày đặt bàn phải lớn hơn hoặc bằng ngày hiện tại.');
+                    }
+                }
+            ],
             'time' => 'required|date_format:H:i',
             'table_id' => 'required|exists:tables,id'
         ], [
@@ -43,12 +59,13 @@ class WebOrderController extends Controller
             'people.integer' => 'Số người phải là số nguyên.',
             'people.min' => 'Số người phải ít nhất là 1.',
             'date.required' => 'Ngày là bắt buộc.',
-            'date.date_format' => 'Định dạng ngày không hợp lệ.',
+            'date.date_format' => 'Định dạng ngày không hợp lệ. Định dạng đúng là dd-mm-yy.',
             'time.required' => 'Giờ là bắt buộc.',
-            'time.date_format' => 'Định dạng giờ không hợp lệ.',
+            'time.date_format' => 'Định dạng giờ không hợp lệ. Định dạng đúng là HH:ii.',
             'table_id.required' => 'Bàn là bắt buộc.',
             'table_id.exists' => 'Bàn không tồn tại.'
         ]);
+        
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();

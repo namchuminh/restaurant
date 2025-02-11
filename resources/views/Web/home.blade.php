@@ -318,9 +318,6 @@ Menu Area
                                                     <div class="box-img">
                                                         <img style="height: 241px;" src="{{ asset('storage/' . $food->image) }}" alt="{{ $food->name }}">
                                                     </div>
-                                                    <p class="box-text">
-                                                        Số lượng còn: {{ $food->quantity }}
-                                                    </p>
                                                     <h4 class="box-price">
                                                         @php
                                                             if ($food->price >= 1000) {
@@ -352,9 +349,6 @@ Menu Area
                                                         <div class="box-img">
                                                             <img style="height: 241px;" src="{{ asset('storage/' . $food->image) }}" alt="{{ $food->name }}">
                                                         </div>
-                                                        <p class="box-text">
-                                                            Số lượng còn: {{ $food->quantity }}
-                                                        </p>
                                                         <h4 class="box-price">
                                                             @php
                                                                 if ($food->price >= 1000) {
@@ -482,8 +476,8 @@ Menu Area
                         <div class="col-xl-9">
                             <div class="slider-area menu-list-slider space" data-bg-src="assets/img/bg/square_pattern2.jpg">
                                 <div class="title-area text-center">
-                                    <span class="sub-title2">Menu nhà hàng</span>
-                                    <h2 class="sec-title title-ani text-white">Thực đơn món ăn nhà hàng của chúng tôi</h2>
+                                    <span class="sub-title2">MENU NHÀ HÀNG</span>
+                                    <h2 class="sec-title title-ani text-white">CÁC MÓN NỔI BẬT CỦA NHÀ HÀNG</h2>
                                 </div>
                                 <div class="swiper th-slider" id="menuSlider3" data-slider-options='{}'>
                                     <div class="swiper-wrapper">
@@ -491,103 +485,106 @@ Menu Area
                                             <div class="menu-list-area">
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_1.png" alt="Food">
+                                                        <img src="assets/img/product/hq720.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">Grilled Salmon with Dil Sauce</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Lẩu gà chua cay</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$40</h4>
+                                                            <h4 class="box-price">$250</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_2.png" alt="Food">
+                                                        <img src="assets/img/product/hq12.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">Roast Beef with Vegetable</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Lẩu gà lá é</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$50</h4>
+                                                            <h4 class="box-price">$320</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_3.png" alt="Food">
+                                                        <img src="assets/img/product/hq13.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">Marrakesh Vegetarian Curry</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Gà hấp mía</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$30</h4>
+                                                            <h4 class="box-price">$260</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_4.png" alt="Food">
+                                                        <img src="assets/img/product/bo-xoi.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">Spicy Vegan Potato Curry</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Gà bó xôi</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$20</h4>
+                                                            <h4 class="box-price">$260</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_5.png" alt="Food">
+                                                        <img src="assets/img/product/tx.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">Apple Pie with Cream</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Gà nấu tiêu xanh</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$45</h4>
+                                                            <h4 class="box-price">$250</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="menu-list">
                                                     <div class="box-img">
-                                                        <img src="assets/img/product/menu_thumb_6.png" alt="Food">
+                                                        <img src="assets/img/product/2-5.jpg" alt="Food">
                                                         <div class="actions">
                                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="shop-details.html">French Onion Soup</a></h3>
+                                                        <h3 class="box-title"><a href="shop-details.html">Gà nướng muối ớt</a></h3>
                                                         <div class="box-content">
-                                                            <p class="box-text">Candied Jerusalem artichokes, truffle</p>
+                                                            <p class="box-text"></p>
                                                             <div class="box-line"></div>
-                                                            <h4 class="box-price">$32</h4>
+                                                            <h4 class="box-price">$200</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="swiper-slide">
+
+
+
+                                        <!-- <div class="swiper-slide">
                                             <div class="menu-list-area">
                                                 <div class="menu-list">
                                                     <div class="box-img">
@@ -693,7 +690,7 @@ Menu Area
                                 <button data-slider-next="#menuSlider3" class="slider-arrow slider-next"><span class="icon"></span></button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>

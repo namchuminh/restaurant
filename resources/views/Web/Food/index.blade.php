@@ -33,9 +33,6 @@
                         <div class="box-img">
                             <img style="height: 241px;" src="{{ asset('storage/' . $food->image) }}" alt="{{ $food->name }}">
                         </div>
-                        <p class="box-text">
-                            Số lượng còn: {{ $food->quantity }}
-                        </p>
                         <h4 class="box-price">
                             @php
                                 if ($food->price >= 1000) {

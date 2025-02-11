@@ -12,13 +12,20 @@ use App\Models\Category;
 class FoodController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $foods = Food::with('category')
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'LIKE', "%{$search}%");
+            })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-        $totalPages = $foods->lastPage(); // Lấy tổng số trang
-        return view('Admin/Food/index', compact('foods', 'totalPages'));
+
+        $totalPages = $foods->lastPage();
+
+        return view('Admin/Food/index', compact('foods', 'totalPages', 'search'));
     }
 
     public function create()
@@ -121,7 +128,7 @@ class FoodController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'quantity' => 'required|integer|min:1',
+            'quantity' => 'required|integer',
             'sale' => 'required|numeric|min:0', // Giá gốc
             'price' => 'required|numeric|min:0', // Giá bán
             'slug' => 'required|string|max:255|unique:food,slug,' . $id, // Chú ý sửa tên bảng ở đây
@@ -134,7 +141,6 @@ class FoodController extends Controller
             'description.string' => 'Mô tả phải là chuỗi.',
             'quantity.required' => 'Số lượng là bắt buộc.',
             'quantity.integer' => 'Số lượng phải là số nguyên.',
-            'quantity.min' => 'Số lượng phải lớn hơn hoặc bằng 1.',
             'sale.required' => 'Giá gốc là bắt buộc.',
             'sale.numeric' => 'Giá gốc phải là số.',
             'sale.min' => 'Giá gốc phải lớn hơn hoặc bằng 0.',
