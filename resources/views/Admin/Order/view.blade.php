@@ -76,7 +76,7 @@
                     <th>Số Lượng</th>
                     <th>Đơn Giá</th>
                     @if ($order->payment == 0)
-                        <th>Hành Động</th>
+                        <th class="not_print">Hành Động</th>
                     @endif
                 </tr>
                 </thead>
@@ -100,7 +100,7 @@
                                 {{ number_format($detailOrder->quantity * $detailOrder->food->price) }}đ
                             </td> 
                             @if ($order->payment == 0)
-                                <td>
+                                <td class="not_print">
                                     <a class="btn btn-danger" href="{{ route('admin.order.deletefood', [$detailOrder->id]) }}"><i class="fa-solid fa-trash"></i> Xóa</a>
                                 </td>
                             @endif
